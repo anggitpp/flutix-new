@@ -1,5 +1,6 @@
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 70,
           ),
           Text(
@@ -30,7 +31,7 @@ class WelcomePage extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Text(
@@ -38,14 +39,14 @@ class WelcomePage extends StatelessWidget {
             style: greyMediumText,
             textAlign: TextAlign.center,
           ),
-          SizedBox(
+          const SizedBox(
             height: 70,
           ),
-          Container(
+          SizedBox(
             width: 250,
             height: 45,
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.toNamed('/home'),
                 style: ElevatedButton.styleFrom(
                     primary: purpleColor,
                     shape: RoundedRectangleBorder(
@@ -57,7 +58,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                 )),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -67,9 +68,12 @@ class WelcomePage extends StatelessWidget {
                 'Already have an account? ',
                 style: greySmallText,
               ),
-              Text(
-                'Sign In',
-                style: smallText.copyWith(color: purpleColor),
+              InkWell(
+                onTap: () => Get.toNamed('/login'),
+                child: Text(
+                  'Sign In',
+                  style: smallText.copyWith(color: purpleColor),
+                ),
               )
             ],
           )
