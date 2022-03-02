@@ -7,4 +7,5 @@ class RouteName {
   static const home = '/home';
   static const movieDetail = '/movieDetail';
   static const selectCinema = '/selectCinema';
+  static const selectSeat = '/selectSeat';
 }

@@ -1,4 +1,5 @@
 import 'package:flutix/controllers/login_page_controller.dart';
+import 'package:flutix/screens/widgets/button_next.dart';
 import 'package:flutix/screens/widgets/textfield.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
@@ -75,21 +76,13 @@ class LoginPage extends StatelessWidget {
                           height: 30,
                         ),
                         Center(
-                          child: Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: controller.isCanSignIn.value
-                                    ? purpleColor
-                                    : lightGreyColor),
-                            child: Icon(
-                              Icons.arrow_forward,
-                              color: controller.isCanSignIn.value
-                                  ? Colors.white
-                                  : darkGreyColor,
-                              size: 30,
-                            ),
+                          child: ButtonNext(
+                            arrowColor: controller.isCanSignIn.value
+                                ? Colors.white
+                                : darkGreyColor,
+                            backgroundColor: controller.isCanSignIn.value
+                                ? purpleColor
+                                : lightGreyColor,
                           ),
                         ),
                       ],

@@ -1,5 +1,7 @@
 import 'package:flutix/controllers/select_genre_page_controller.dart';
+import 'package:flutix/screens/widgets/button_next.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
+import 'package:flutix/screens/widgets/textbox_widget.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -69,29 +71,13 @@ class SelectGenrePage extends StatelessWidget {
                           .map(
                             (e) => InkWell(
                               onTap: () => controller.addSelectedGenre(e),
-                              child: Container(
+                              child: TextBoxWidget(
                                 width: phoneWidth / 2 - 38,
                                 height: 60,
-                                decoration: BoxDecoration(
-                                  color: controller.selectedGenres.contains(e)
-                                      ? yellowColor
-                                      : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(6),
-                                  border: Border.all(
-                                      color: lightGreyColor, width: 1),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      e,
-                                      style: mediumText.copyWith(
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                color: controller.selectedGenres.contains(e)
+                                    ? yellowColor
+                                    : Colors.transparent,
+                                text: e,
                               ),
                             ),
                           )
@@ -122,30 +108,13 @@ class SelectGenrePage extends StatelessWidget {
                           .map(
                             (e) => InkWell(
                               onTap: () => controller.selectLanguage(e),
-                              child: Container(
-                                width: phoneWidth / 2 - 38,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6),
+                              child: TextBoxWidget(
+                                  width: phoneWidth / 2 - 38,
+                                  height: 60,
                                   color: controller.selectedLang.value == e
                                       ? yellowColor
                                       : Colors.transparent,
-                                  border: Border.all(
-                                      color: lightGreyColor, width: 1),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      e,
-                                      style: mediumText.copyWith(
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                                  text: e),
                             ),
                           )
                           .toList(),
@@ -160,23 +129,13 @@ class SelectGenrePage extends StatelessWidget {
                     onTap: () => controller.isCanSignUp.value
                         ? Get.toNamed('/confirmAccount')
                         : () {},
-                    child: Center(
-                      child: Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: controller.isCanSignUp.value
-                                ? purpleColor
-                                : lightGreyColor),
-                        child: Icon(
-                          Icons.arrow_forward,
-                          color: controller.isCanSignUp.value
-                              ? Colors.white
-                              : darkGreyColor,
-                          size: 30,
-                        ),
-                      ),
+                    child: ButtonNext(
+                      arrowColor: controller.isCanSignUp.value
+                          ? Colors.white
+                          : darkGreyColor,
+                      backgroundColor: controller.isCanSignUp.value
+                          ? purpleColor
+                          : lightGreyColor,
                     ),
                   ),
                 ),

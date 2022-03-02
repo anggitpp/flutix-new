@@ -1,4 +1,5 @@
 import 'package:flutix/controllers/registration_page_controller.dart';
+import 'package:flutix/screens/widgets/button_next.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/textfield.dart';
 import 'package:flutix/shared/theme.dart';
@@ -140,23 +141,13 @@ class RegistrationPage extends StatelessWidget {
                         onTap: () => controller.isCanSignUp.value
                             ? Get.toNamed('/genre')
                             : () {},
-                        child: Center(
-                          child: Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: controller.isCanSignUp.value
-                                    ? purpleColor
-                                    : lightGreyColor),
-                            child: Icon(
-                              Icons.arrow_forward,
-                              color: controller.isCanSignUp.value
-                                  ? Colors.white
-                                  : darkGreyColor,
-                              size: 30,
-                            ),
-                          ),
+                        child: ButtonNext(
+                          arrowColor: controller.isCanSignUp.value
+                              ? Colors.white
+                              : darkGreyColor,
+                          backgroundColor: controller.isCanSignUp.value
+                              ? purpleColor
+                              : lightGreyColor,
                         ),
                       ),
                     ],

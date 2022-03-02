@@ -4,6 +4,7 @@ import 'package:flutix/bindings/login_page_binding.dart';
 import 'package:flutix/bindings/registration_page_binding.dart';
 import 'package:flutix/bindings/select_cinema_page.dart';
 import 'package:flutix/bindings/select_genre_page_binding.dart';
+import 'package:flutix/bindings/select_seat_page_binding.dart';
 import 'package:flutix/routes/route_name.dart';
 import 'package:flutix/screens/pages/confirm_account_page.dart';
 import 'package:flutix/screens/pages/home_page.dart';
@@ -12,6 +13,7 @@ import 'package:flutix/screens/pages/movie_detail_page.dart';
 import 'package:flutix/screens/pages/registration_page.dart';
 import 'package:flutix/screens/pages/select_cinema_page.dart';
 import 'package:flutix/screens/pages/select_genre_page.dart';
+import 'package:flutix/screens/pages/select_seat_page.dart';
 import 'package:flutix/screens/pages/welcome_page.dart';
 import 'package:get/get.dart';
 
@@ -54,6 +56,11 @@ class Pages {
       name: RouteName.selectCinema,
       binding: SelectCinemaPageBinding(),
       page: () => SelectCinemaPage(),
+    ),
+    GetPage(
+      name: RouteName.selectSeat,
+      binding: SelectSeatPageBinding(),
+      page: () => SelectSeatPage(),
     ),
   ];
 }

@@ -46,7 +46,7 @@ class WelcomePage extends StatelessWidget {
             width: 250,
             height: 45,
             child: ElevatedButton(
-                onPressed: () => Get.toNamed('/home'),
+                onPressed: () => Get.toNamed('/selectSeat'),
                 style: ElevatedButton.styleFrom(
                     primary: purpleColor,
                     shape: RoundedRectangleBorder(
