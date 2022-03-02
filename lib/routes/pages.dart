@@ -2,12 +2,15 @@ import 'package:flutix/bindings/confirm_account_page_binding.dart';
 import 'package:flutix/bindings/home_page_binding.dart';
 import 'package:flutix/bindings/login_page_binding.dart';
 import 'package:flutix/bindings/registration_page_binding.dart';
+import 'package:flutix/bindings/select_cinema_page.dart';
 import 'package:flutix/bindings/select_genre_page_binding.dart';
 import 'package:flutix/routes/route_name.dart';
 import 'package:flutix/screens/pages/confirm_account_page.dart';
 import 'package:flutix/screens/pages/home_page.dart';
 import 'package:flutix/screens/pages/login_page.dart';
+import 'package:flutix/screens/pages/movie_detail_page.dart';
 import 'package:flutix/screens/pages/registration_page.dart';
+import 'package:flutix/screens/pages/select_cinema_page.dart';
 import 'package:flutix/screens/pages/select_genre_page.dart';
 import 'package:flutix/screens/pages/welcome_page.dart';
 import 'package:get/get.dart';
@@ -39,8 +42,18 @@ class Pages {
       page: () => const ConfirmAccountPage(),
     ),
     GetPage(
-        name: RouteName.home,
-        page: () => HomePage(),
-        binding: HomePageBinding()),
+      name: RouteName.home,
+      page: () => HomePage(),
+      binding: HomePageBinding(),
+    ),
+    GetPage(
+      name: RouteName.movieDetail,
+      page: () => const MovieDetailPage(),
+    ),
+    GetPage(
+      name: RouteName.selectCinema,
+      binding: SelectCinemaPageBinding(),
+      page: () => SelectCinemaPage(),
+    ),
   ];
 }

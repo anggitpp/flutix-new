@@ -5,4 +5,6 @@ class RouteName {
   static const genre = '/genre';
   static const confirmAccount = '/confirmAccount';
   static const home = '/home';
+  static const movieDetail = '/movieDetail';
+  static const selectCinema = '/selectCinema';
 }
