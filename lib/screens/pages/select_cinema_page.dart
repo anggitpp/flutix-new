@@ -132,7 +132,7 @@ class SelectCinemaPage extends StatelessWidget {
                             var time = controller.times[index];
                             return InkWell(
                               onTap: () => controller.selectCinema(
-                                cinema.id,
+                                cinema,
                                 controller.times[index],
                               ),
                               child: Obx(
@@ -189,7 +189,12 @@ class SelectCinemaPage extends StatelessWidget {
               Obx(
                 () => InkWell(
                   onTap: () => controller.isCanNextStep.value
-                      ? Get.toNamed('/genre')
+                      ? Get.toNamed('/selectSeat', arguments: {
+                          'movie': Get.arguments['movie'],
+                          'date': controller.selectedDate,
+                          'cinema': controller.selectedCinema,
+                          'time': controller.selectedTime,
+                        })
                       : () {},
                   child: Center(
                     child: Container(

@@ -1,4 +1,5 @@
 import 'package:flutix/controllers/select_seat_page_controller.dart';
+import 'package:flutix/model/movie.dart';
 import 'package:flutix/model/seat_row.dart';
 import 'package:flutix/screens/widgets/button_next.dart';
 import 'package:flutix/screens/widgets/textbox_widget.dart';
@@ -22,6 +23,7 @@ class SelectSeatPage extends StatelessWidget {
     ];
     var phoneWidth = MediaQuery.of(context).size.width;
     var phoneHeight = MediaQuery.of(context).size.height;
+    Movie movie = Get.arguments['movie'];
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -43,18 +45,25 @@ class SelectSeatPage extends StatelessWidget {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
                           height: 56,
                           width: 110,
-                          child: Text(
-                            'Avengers Infinity War',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.right,
-                            style: largeText.copyWith(
-                              fontWeight: FontWeight.w500,
-                            ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                movie.title,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.right,
+                                style: largeText.copyWith(
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         SizedBox(
@@ -66,7 +75,7 @@ class SelectSeatPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             image: DecorationImage(
-                              image: AssetImage('assets/movies/luca.jpeg'),
+                              image: AssetImage('assets/movies/' + movie.image),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -200,7 +209,13 @@ class SelectSeatPage extends StatelessWidget {
               ),
               Obx(
                 () => InkWell(
-                  onTap: () => Get.toNamed('/checkout'),
+                  onTap: () => Get.toNamed('/checkout', arguments: {
+                    'movie': movie,
+                    'cinema': Get.arguments['cinema'],
+                    'seat': controller.selectedSeats,
+                    'time': Get.arguments['time'],
+                    'date': Get.arguments['date'],
+                  }),
                   child: ButtonNext(
                     arrowColor: controller.isCanNextStep.value
                         ? Colors.white

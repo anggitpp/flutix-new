@@ -1,3 +1,4 @@
+import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutix/model/cast.dart';
@@ -92,33 +93,9 @@ class MovieDetailPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.star,
-                              color: yellowColor,
-                              size: 20,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: yellowColor,
-                              size: 20,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: yellowColor,
-                              size: 20,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: yellowColor,
-                              size: 20,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: yellowColor,
-                              size: 20,
-                            ),
+                            StarWidget(star: movie.star),
                             SizedBox(
-                              width: 5,
+                              width: 6,
                             ),
                             Text(
                               movie.star.toString() + '/10',
@@ -170,7 +147,7 @@ class MovieDetailPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(8),
                                     image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/movies/avengers.jpg'),
+                                            'assets/movies/' + data.imageURL),
                                         fit: BoxFit.cover),
                                   ),
                                 ),

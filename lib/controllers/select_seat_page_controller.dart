@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 class SelectSeatPageController extends GetxController {
   var isCanNextStep = false.obs;
   RxList<String> selectedSeats = RxList<String>();
-  RxString selectedLang = ''.obs;
 
   void addSelectedSeats(String item) {
     if (selectedSeats.contains(item)) {

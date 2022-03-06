@@ -1,8 +1,11 @@
+import 'package:flutix/model/cinema.dart';
+import 'package:flutix/model/movie.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 class CheckoutPage extends StatelessWidget {
@@ -10,7 +13,16 @@ class CheckoutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    initializeDateFormatting();
+
     var phoneWidth = MediaQuery.of(context).size.width;
+    Movie movie = Get.arguments['movie'];
+    Cinema cinema = Get.arguments['cinema'];
+    DateTime now = new DateTime.now();
+    DateTime date = new DateTime(
+        now.year, now.month, int.parse(Get.arguments['date'].toString()));
+
+    var formattedDate = DateFormat('EE dd', 'id').format(date);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -31,10 +43,12 @@ class CheckoutPage extends StatelessWidget {
                     width: 70,
                     height: 90,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage('assets/movies/avengers.jpg'))),
+                      borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/movies/' + movie.image),
+                      ),
+                    ),
                   ),
                   SizedBox(
                     width: 20,
@@ -44,7 +58,7 @@ class CheckoutPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Avengers: Infinity Wars',
+                        movie.title,
                         style: largeText.copyWith(
                           fontSize: 18,
                         ),
@@ -53,7 +67,7 @@ class CheckoutPage extends StatelessWidget {
                         height: 6,
                       ),
                       Text(
-                        'Action - English',
+                        '${movie.genre} - ${movie.language}',
                         style: greySmallText,
                       ),
                       SizedBox(
@@ -61,12 +75,12 @@ class CheckoutPage extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          StarWidget(star: 7),
+                          StarWidget(star: movie.star),
                           SizedBox(
                             width: 6,
                           ),
                           Text(
-                            '7/10',
+                            movie.star.toString() + '/10',
                             style: currencySmallText,
                           )
                         ],
@@ -118,7 +132,7 @@ class CheckoutPage extends StatelessWidget {
                         style: greyMediumText,
                       ),
                       Text(
-                        'Paris Van Java',
+                        cinema.name,
                         style: mediumText,
                       ),
                     ],
@@ -134,7 +148,7 @@ class CheckoutPage extends StatelessWidget {
                         style: greyMediumText,
                       ),
                       Text(
-                        'Sat 21, 12:20',
+                        '$formattedDate, ${Get.arguments['time']}',
                         style: currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
@@ -153,7 +167,10 @@ class CheckoutPage extends StatelessWidget {
                         style: greyMediumText,
                       ),
                       Text(
-                        'B3, B4',
+                        Get.arguments['seat']
+                            .toString()
+                            .replaceAll('[', '')
+                            .replaceAll(']', ''),
                         style: currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
@@ -176,8 +193,9 @@ class CheckoutPage extends StatelessWidget {
                                     locale: 'id',
                                     symbol: 'Rp ',
                                     decimalDigits: 0)
-                                .format(12500000) +
-                            ' x 2',
+                                .format(25000) +
+                            ' x ' +
+                            Get.arguments['seat'].length.toString(),
                         style: currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
@@ -200,8 +218,9 @@ class CheckoutPage extends StatelessWidget {
                                     locale: 'id',
                                     symbol: 'Rp ',
                                     decimalDigits: 0)
-                                .format(290000) +
-                            ' x 2',
+                                .format(2500) +
+                            ' x ' +
+                            Get.arguments['seat'].length.toString(),
                         style: currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
@@ -222,7 +241,7 @@ class CheckoutPage extends StatelessWidget {
                       Text(
                         NumberFormat.currency(
                                 locale: 'id', symbol: 'Rp ', decimalDigits: 0)
-                            .format(25106000),
+                            .format(25000 * Get.arguments['seat'].length),
                         style: currencySmallText.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

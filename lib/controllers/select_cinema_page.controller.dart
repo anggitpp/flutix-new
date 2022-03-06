@@ -1,3 +1,4 @@
+import 'package:flutix/model/cinema.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -21,6 +22,7 @@ class SelectCinemaPageController extends GetxController {
   ];
 
   RxString selectedDate = ''.obs;
+  Cinema? selectedCinema;
   RxInt selectedCinemaId = 0.obs;
   RxString selectedTime = ''.obs;
 
@@ -30,9 +32,12 @@ class SelectCinemaPageController extends GetxController {
     checkNotEmpty();
   }
 
-  void selectCinema(int cinema, String time) {
-    selectedCinemaId.value = cinema;
+  void selectCinema(Cinema cinema, String time) {
+    selectedCinemaId.value = cinema.id;
+    selectedCinema = cinema;
     selectedTime.value = time;
+
+    update();
 
     checkNotEmpty();
   }
@@ -43,6 +48,8 @@ class SelectCinemaPageController extends GetxController {
     } else {
       isCanNextStep.value = false;
     }
+
+    update();
   }
 }
 
