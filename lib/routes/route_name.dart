@@ -8,4 +8,5 @@ class RouteName {
   static const movieDetail = '/movieDetail';
   static const selectCinema = '/selectCinema';
   static const selectSeat = '/selectSeat';
+  static const checkout = '/checkout';
 }

@@ -199,13 +199,16 @@ class SelectSeatPage extends StatelessWidget {
                 height: 30,
               ),
               Obx(
-                () => ButtonNext(
-                  arrowColor: controller.isCanNextStep.value
-                      ? Colors.white
-                      : darkGreyColor,
-                  backgroundColor: controller.isCanNextStep.value
-                      ? purpleColor
-                      : lightGreyColor,
+                () => InkWell(
+                  onTap: () => Get.toNamed('/checkout'),
+                  child: ButtonNext(
+                    arrowColor: controller.isCanNextStep.value
+                        ? Colors.white
+                        : darkGreyColor,
+                    backgroundColor: controller.isCanNextStep.value
+                        ? purpleColor
+                        : lightGreyColor,
+                  ),
                 ),
               ),
             ],
