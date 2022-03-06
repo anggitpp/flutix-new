@@ -21,3 +21,4 @@ Color darkGreyColor = 'BEBEBE'.toColor();
 Color yellowColor = 'FBD460'.toColor();
 Color greyColor = 'ADADAD'.toColor();
 Color darkPurpleColor = '2C1F63'.toColor();
+Color greenColor = '3E9D9D'.toColor();

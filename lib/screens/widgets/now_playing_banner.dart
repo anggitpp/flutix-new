@@ -1,4 +1,5 @@
 import 'package:flutix/model/movie.dart';
+import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutix/shared/theme.dart';
@@ -67,7 +68,10 @@ class NowPlayingBanner extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        stars(movie.star),
+                        StarWidget(
+                          star: movie.star,
+                          isBanner: true,
+                        ),
                         const SizedBox(
                           width: 5,
                         ),
@@ -86,20 +90,6 @@ class NowPlayingBanner extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget stars(star) {
-    return Row(
-      children: [
-        for (var i = 1; i <= 5; i++)
-          Icon(
-            Icons.star,
-            color:
-                (star / 2).toDouble().round() >= i ? yellowColor : Colors.white,
-            size: 20,
-          ),
-      ],
     );
   }
 }
