@@ -11,4 +11,5 @@ class RouteName {
   static const checkout = '/checkout';
   static const success = '/success';
   static const topup = '/topup';
+  static const mywallet = '/mywallet';
 }

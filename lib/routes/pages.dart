@@ -13,6 +13,7 @@ import 'package:flutix/screens/pages/confirm_account_page.dart';
 import 'package:flutix/screens/pages/home_page.dart';
 import 'package:flutix/screens/pages/login_page.dart';
 import 'package:flutix/screens/pages/movie_detail_page.dart';
+import 'package:flutix/screens/pages/mywallet_page.dart';
 import 'package:flutix/screens/pages/registration_page.dart';
 import 'package:flutix/screens/pages/select_cinema_page.dart';
 import 'package:flutix/screens/pages/select_genre_page.dart';
@@ -80,6 +81,10 @@ class Pages {
       name: RouteName.topup,
       binding: TopupPageBinding(),
       page: () => TopupPage(),
+    ),
+    GetPage(
+      name: RouteName.mywallet,
+      page: () => MyWalletPage(),
     ),
   ];
 }
