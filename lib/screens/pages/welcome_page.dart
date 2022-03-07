@@ -1,3 +1,4 @@
+import 'package:flutix/screens/widgets/button_text.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,21 +43,16 @@ class WelcomePage extends StatelessWidget {
           const SizedBox(
             height: 70,
           ),
-          SizedBox(
-            width: 250,
-            height: 45,
-            child: ElevatedButton(
-                onPressed: () => Get.toNamed('/home'),
-                style: ElevatedButton.styleFrom(
-                    primary: purpleColor,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8))),
-                child: Text(
-                  'Get started',
-                  style: mediumText.copyWith(
-                    color: Colors.white,
-                  ),
-                )),
+          ButtonText(
+            color: purpleColor,
+            text: 'Get started',
+            function: () => Get.toNamed('/success', arguments: {
+              'image': 'success_checkout.png',
+              'title': 'Happy Watching!',
+              'text1': 'You have successfully',
+              'text2': 'bought the ticket',
+              'buttonText': 'My Tickets',
+            }),
           ),
           const SizedBox(
             height: 20,
@@ -76,7 +72,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),
         ],
       )),
     );

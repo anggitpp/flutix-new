@@ -9,4 +9,5 @@ class RouteName {
   static const selectCinema = '/selectCinema';
   static const selectSeat = '/selectSeat';
   static const checkout = '/checkout';
+  static const success = '/success';
 }

@@ -1,3 +1,4 @@
+import 'package:flutix/screens/widgets/button_text.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -197,26 +198,13 @@ class MovieDetailPage extends StatelessWidget {
                             height: 30,
                           ),
                           Center(
-                            child: Container(
-                              width: 250,
-                              height: 45,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    primary: purpleColor,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8))),
-                                onPressed: () =>
-                                    Get.toNamed('/selectCinema', arguments: {
-                                  'movie': Get.arguments['movie'],
-                                }),
-                                child: Text(
-                                  'Continue to Book',
-                                  style: mediumText.copyWith(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
+                            child: ButtonText(
+                              color: purpleColor,
+                              text: 'Continue to Book',
+                              function: () =>
+                                  Get.toNamed('/selectCinema', arguments: {
+                                'movie': Get.arguments['movie'],
+                              }),
                             ),
                           ),
                           SizedBox(

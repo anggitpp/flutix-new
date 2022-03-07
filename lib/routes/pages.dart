@@ -16,6 +16,7 @@ import 'package:flutix/screens/pages/registration_page.dart';
 import 'package:flutix/screens/pages/select_cinema_page.dart';
 import 'package:flutix/screens/pages/select_genre_page.dart';
 import 'package:flutix/screens/pages/select_seat_page.dart';
+import 'package:flutix/screens/pages/success_page.dart';
 import 'package:flutix/screens/pages/welcome_page.dart';
 import 'package:get/get.dart';
 
@@ -68,6 +69,10 @@ class Pages {
       name: RouteName.checkout,
       binding: CheckoutPageBinding(),
       page: () => CheckoutPage(),
+    ),
+    GetPage(
+      name: RouteName.success,
+      page: () => SuccessPage(),
     ),
   ];
 }

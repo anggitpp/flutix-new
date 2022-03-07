@@ -1,5 +1,6 @@
 import 'package:flutix/model/cinema.dart';
 import 'package:flutix/model/movie.dart';
+import 'package:flutix/screens/widgets/button_text.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutix/shared/theme.dart';
@@ -283,23 +284,10 @@ class CheckoutPage extends StatelessWidget {
                   SizedBox(
                     height: 36,
                   ),
-                  Container(
-                    width: 250,
-                    height: 45,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Checkout Now',
-                        style: mediumText.copyWith(
-                          color: Colors.white,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          primary: greenColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                    ),
-                  )
+                  ButtonText(
+                      color: greenColor,
+                      text: 'Checkout Now',
+                      function: () => Get.toNamed('/success'))
                 ],
               ),
             ),
