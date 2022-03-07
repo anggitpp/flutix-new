@@ -6,6 +6,7 @@ import 'package:flutix/bindings/registration_page_binding.dart';
 import 'package:flutix/bindings/select_cinema_page.dart';
 import 'package:flutix/bindings/select_genre_page_binding.dart';
 import 'package:flutix/bindings/select_seat_page_binding.dart';
+import 'package:flutix/bindings/topup_page_binding.dart';
 import 'package:flutix/routes/route_name.dart';
 import 'package:flutix/screens/pages/checkout_page.dart';
 import 'package:flutix/screens/pages/confirm_account_page.dart';
@@ -17,6 +18,7 @@ import 'package:flutix/screens/pages/select_cinema_page.dart';
 import 'package:flutix/screens/pages/select_genre_page.dart';
 import 'package:flutix/screens/pages/select_seat_page.dart';
 import 'package:flutix/screens/pages/success_page.dart';
+import 'package:flutix/screens/pages/topup_page.dart';
 import 'package:flutix/screens/pages/welcome_page.dart';
 import 'package:get/get.dart';
 
@@ -73,6 +75,11 @@ class Pages {
     GetPage(
       name: RouteName.success,
       page: () => SuccessPage(),
+    ),
+    GetPage(
+      name: RouteName.topup,
+      binding: TopupPageBinding(),
+      page: () => TopupPage(),
     ),
   ];
 }

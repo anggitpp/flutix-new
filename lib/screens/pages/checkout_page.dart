@@ -285,9 +285,16 @@ class CheckoutPage extends StatelessWidget {
                     height: 36,
                   ),
                   ButtonText(
-                      color: greenColor,
-                      text: 'Checkout Now',
-                      function: () => Get.toNamed('/success'))
+                    color: greenColor,
+                    text: 'Checkout Now',
+                    function: () => Get.toNamed('/success', arguments: {
+                      'image': 'success_checkout.png',
+                      'title': 'Happy Watching!',
+                      'text1': 'You have successfully',
+                      'text2': 'bought the ticket',
+                      'buttonText': 'My Tickets',
+                    }),
+                  ),
                 ],
               ),
             ),

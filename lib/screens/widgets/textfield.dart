@@ -6,14 +6,14 @@ import 'package:flutix/shared/theme.dart';
 class CreateTextField extends StatelessWidget {
   TextEditingController controller;
   bool obsecureText;
-  Color labelColor;
+  Color? labelColor;
   Function? checkFunction;
   String label;
   CreateTextField({
     Key? key,
     required this.controller,
     this.obsecureText = false,
-    required this.labelColor,
+    this.labelColor,
     this.checkFunction,
     required this.label,
   }) : super(key: key);

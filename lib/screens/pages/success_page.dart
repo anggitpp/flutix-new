@@ -63,10 +63,13 @@ class SuccessPage extends StatelessWidget {
                   'Discover new movie? ',
                   style: greySmallText,
                 ),
-                Text(
-                  'Back to Home',
-                  style: smallText.copyWith(
-                    color: purpleColor,
+                InkWell(
+                  onTap: () => Get.offAllNamed('/home'),
+                  child: Text(
+                    'Back to Home',
+                    style: smallText.copyWith(
+                      color: purpleColor,
+                    ),
                   ),
                 )
               ],

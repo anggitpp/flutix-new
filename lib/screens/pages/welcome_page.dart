@@ -46,13 +46,7 @@ class WelcomePage extends StatelessWidget {
           ButtonText(
             color: purpleColor,
             text: 'Get started',
-            function: () => Get.toNamed('/success', arguments: {
-              'image': 'success_checkout.png',
-              'title': 'Happy Watching!',
-              'text1': 'You have successfully',
-              'text2': 'bought the ticket',
-              'buttonText': 'My Tickets',
-            }),
+            function: () => Get.toNamed('/topup'),
           ),
           const SizedBox(
             height: 20,
