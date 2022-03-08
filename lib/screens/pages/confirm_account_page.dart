@@ -12,12 +12,13 @@ class ConfirmAccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<RegistrationPageController>();
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
           child: Column(
         children: [
           HeaderTitle(
             backFunction: Get.back,
-            title: 'Confirmn\nNew Account',
+            title: 'Confirm\nNew Account',
           ),
           const SizedBox(
             height: 90,
@@ -68,7 +69,7 @@ class ConfirmAccountPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () => Get.toNamed('/home'),
               child: Text(
                 'Create My Account',
                 style: mediumText.copyWith(

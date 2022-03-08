@@ -13,6 +13,7 @@ class RegistrationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<RegistrationPageController>();
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

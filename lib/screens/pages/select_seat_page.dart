@@ -5,6 +5,7 @@ import 'package:flutix/screens/widgets/button_next.dart';
 import 'package:flutix/screens/widgets/textbox_widget.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class SelectSeatPage extends StatelessWidget {
@@ -17,6 +18,16 @@ class SelectSeatPage extends StatelessWidget {
     var phoneWidth = MediaQuery.of(context).size.width;
     Movie movie = Get.arguments['movie'];
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
@@ -31,9 +42,12 @@ class SelectSeatPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Icon(
-                      Icons.arrow_back,
-                      size: 24,
+                    GestureDetector(
+                      onTap: () => Get.back(),
+                      child: const Icon(
+                        Icons.arrow_back,
+                        size: 24,
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -200,7 +214,7 @@ class SelectSeatPage extends StatelessWidget {
                 height: 30,
               ),
               Obx(
-                () => InkWell(
+                () => GestureDetector(
                   onTap: () => Get.toNamed('/checkout', arguments: {
                     'movie': movie,
                     'cinema': Get.arguments['cinema'],

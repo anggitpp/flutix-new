@@ -15,24 +15,27 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.amber, // navigation bar color
-      statusBarColor: Colors.red, // status bar color
-      statusBarIconBrightness: Brightness.dark, // status bar icon color
-      systemNavigationBarIconBrightness:
-          Brightness.dark, // color of navigation controls
-    ));
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //   statusBarColor: darkPurpleColor,
+    //   statusBarBrightness: Brightness.dark,
+    //   statusBarIconBrightness: Brightness.dark, // status bar icon color
+    //   systemNavigationBarIconBrightness:
+    //       Brightness.dark, // color of navigation controls
+    // ));
 
     return Scaffold(
       backgroundColor: 'F6F7F9'.toColor(),
       appBar: AppBar(
         toolbarHeight: 0,
-        backgroundColor: darkPurpleColor,
         elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: darkPurpleColor,
+          statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
       ),
       floatingActionButton: Align(
-        alignment: Alignment(0.1, 1.08),
+        alignment: const Alignment(0.1, 1.08),
         child: FloatingActionButton(
           onPressed: () => Get.toNamed('/topup'),
           backgroundColor: yellowColor,

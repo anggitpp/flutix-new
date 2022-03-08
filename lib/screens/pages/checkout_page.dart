@@ -5,6 +5,7 @@ import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -25,6 +26,16 @@ class CheckoutPage extends StatelessWidget {
 
     var formattedDate = DateFormat('EE dd', 'id').format(date);
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -287,7 +298,7 @@ class CheckoutPage extends StatelessWidget {
                   ButtonText(
                     color: greenColor,
                     text: 'Checkout Now',
-                    function: () => Get.toNamed('/success', arguments: {
+                    function: () => Get.offAllNamed('/success', arguments: {
                       'image': 'success_checkout.png',
                       'title': 'Happy Watching!',
                       'text1': 'You have successfully',

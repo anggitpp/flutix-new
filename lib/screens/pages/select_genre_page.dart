@@ -32,118 +32,119 @@ class SelectGenrePage extends StatelessWidget {
     var phoneWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
             child: SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          HeaderTitle(
-            backFunction: Get.back,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: defaultMargin,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Select Your\nFavorite Genre',
-                  style: largeText.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeaderTitle(
+                backFunction: Get.back,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: defaultMargin,
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
-                SizedBox(
-                  width: phoneWidth - 2 * defaultMargin,
-                  child: Obx(
-                    () => Wrap(
-                      direction: Axis.horizontal,
-                      spacing: 24,
-                      runSpacing: 24,
-                      children: genres
-                          .map(
-                            (e) => InkWell(
-                              onTap: () => controller.addSelectedGenre(e),
-                              child: TextBoxWidget(
-                                width: phoneWidth / 2 - 38,
-                                height: 60,
-                                color: controller.selectedGenres.contains(e)
-                                    ? yellowColor
-                                    : Colors.transparent,
-                                text: e,
-                              ),
-                            ),
-                          )
-                          .toList(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Select Your\nFavorite Genre',
+                      style: largeText.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                Text(
-                  'Movie Language\nYou Prefer?',
-                  style: largeText.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                SizedBox(
-                  width: phoneWidth - 2 * defaultMargin,
-                  child: Obx(
-                    () => Wrap(
-                      direction: Axis.horizontal,
-                      spacing: 24,
-                      runSpacing: 24,
-                      children: languages
-                          .map(
-                            (e) => InkWell(
-                              onTap: () => controller.selectLanguage(e),
-                              child: TextBoxWidget(
-                                  width: phoneWidth / 2 - 38,
-                                  height: 60,
-                                  color: controller.selectedLang.value == e
-                                      ? yellowColor
-                                      : Colors.transparent,
-                                  text: e),
-                            ),
-                          )
-                          .toList(),
+                    const SizedBox(
+                      height: 16,
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Obx(
-                  () => InkWell(
-                    onTap: () => controller.isCanSignUp.value
-                        ? Get.toNamed('/confirmAccount')
-                        : () {},
-                    child: ButtonNext(
-                      arrowColor: controller.isCanSignUp.value
-                          ? Colors.white
-                          : darkGreyColor,
-                      backgroundColor: controller.isCanSignUp.value
-                          ? purpleColor
-                          : lightGreyColor,
+                    SizedBox(
+                      width: phoneWidth - 2 * defaultMargin,
+                      child: Obx(
+                        () => Wrap(
+                          direction: Axis.horizontal,
+                          spacing: 24,
+                          runSpacing: 24,
+                          children: genres
+                              .map(
+                                (e) => InkWell(
+                                  onTap: () => controller.addSelectedGenre(e),
+                                  child: TextBoxWidget(
+                                    width: phoneWidth / 2 - 38,
+                                    height: 60,
+                                    color: controller.selectedGenres.contains(e)
+                                        ? yellowColor
+                                        : Colors.transparent,
+                                    text: e,
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Text(
+                      'Movie Language\nYou Prefer?',
+                      style: largeText.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    SizedBox(
+                      width: phoneWidth - 2 * defaultMargin,
+                      child: Obx(
+                        () => Wrap(
+                          direction: Axis.horizontal,
+                          spacing: 24,
+                          runSpacing: 24,
+                          children: languages
+                              .map(
+                                (e) => InkWell(
+                                  onTap: () => controller.selectLanguage(e),
+                                  child: TextBoxWidget(
+                                      width: phoneWidth / 2 - 38,
+                                      height: 60,
+                                      color: controller.selectedLang.value == e
+                                          ? yellowColor
+                                          : Colors.transparent,
+                                      text: e),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Obx(
+                      () => InkWell(
+                        onTap: () => controller.isCanSignUp.value
+                            ? Get.toNamed('/confirmAccount')
+                            : () {},
+                        child: ButtonNext(
+                          arrowColor: controller.isCanSignUp.value
+                              ? Colors.white
+                              : darkGreyColor,
+                          backgroundColor: controller.isCanSignUp.value
+                              ? purpleColor
+                              : lightGreyColor,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
-    )));
+        )));
   }
 }

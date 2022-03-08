@@ -2,6 +2,7 @@ import 'package:flutix/controllers/select_cinema_page.controller.dart';
 import 'package:flutix/model/cinema.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class SelectCinemaPage extends StatelessWidget {
@@ -13,6 +14,16 @@ class SelectCinemaPage extends StatelessWidget {
     final controller = Get.find<SelectCinemaPageController>();
 
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

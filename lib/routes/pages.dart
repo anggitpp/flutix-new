@@ -7,6 +7,7 @@ import 'package:flutix/bindings/registration_page_binding.dart';
 import 'package:flutix/bindings/select_cinema_page.dart';
 import 'package:flutix/bindings/select_genre_page_binding.dart';
 import 'package:flutix/bindings/select_seat_page_binding.dart';
+import 'package:flutix/bindings/success_page_binding.dart';
 import 'package:flutix/bindings/topup_page_binding.dart';
 import 'package:flutix/routes/route_name.dart';
 import 'package:flutix/screens/pages/checkout_page.dart';
@@ -79,6 +80,7 @@ class Pages {
     ),
     GetPage(
       name: RouteName.success,
+      binding: SuccessPageBinding(),
       page: () => const SuccessPage(),
     ),
     GetPage(

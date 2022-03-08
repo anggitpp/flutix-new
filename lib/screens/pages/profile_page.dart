@@ -52,11 +52,11 @@ class ProfilePage extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Container(
+            SizedBox(
               width: phoneWidth - 2 * defaultMargin,
               child: Column(
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: () => Get.toNamed('/editProfile'),
                     child: Row(
                       children: [
@@ -90,7 +90,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 16,
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () => Get.toNamed('/mywallet'),
                     child: Row(
                       children: [

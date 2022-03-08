@@ -1,6 +1,7 @@
 import 'package:flutix/screens/widgets/button_text.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -9,6 +10,16 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
+      ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
