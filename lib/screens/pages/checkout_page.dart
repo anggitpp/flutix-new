@@ -19,8 +19,8 @@ class CheckoutPage extends StatelessWidget {
     var phoneWidth = MediaQuery.of(context).size.width;
     Movie movie = Get.arguments['movie'];
     Cinema cinema = Get.arguments['cinema'];
-    DateTime now = new DateTime.now();
-    DateTime date = new DateTime(
+    DateTime now = DateTime.now();
+    DateTime date = DateTime(
         now.year, now.month, int.parse(Get.arguments['date'].toString()));
 
     var formattedDate = DateFormat('EE dd', 'id').format(date);
@@ -32,10 +32,10 @@ class CheckoutPage extends StatelessWidget {
               backFunction: () => Get.back(),
               title: 'Checkout\nMovie',
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               width: phoneWidth - 2 * defaultMargin,
               height: 90,
               child: Row(
@@ -51,7 +51,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Column(
@@ -64,20 +64,20 @@ class CheckoutPage extends StatelessWidget {
                           fontSize: 18,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
                       Text(
                         '${movie.genre} - ${movie.language}',
                         style: greySmallText,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 6,
                       ),
                       Row(
                         children: [
                           StarWidget(star: movie.star),
-                          SizedBox(
+                          const SizedBox(
                             width: 6,
                           ),
                           Text(
@@ -91,7 +91,7 @@ class CheckoutPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -99,7 +99,7 @@ class CheckoutPage extends StatelessWidget {
               height: 1,
               color: lightGreyColor,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -122,7 +122,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -138,7 +138,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -157,7 +157,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -179,7 +179,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -204,7 +204,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -229,7 +229,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -251,7 +251,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
@@ -259,7 +259,7 @@ class CheckoutPage extends StatelessWidget {
                     height: 1,
                     color: lightGreyColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -281,7 +281,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 36,
                   ),
                   ButtonText(

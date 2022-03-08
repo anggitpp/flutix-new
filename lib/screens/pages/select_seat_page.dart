@@ -14,20 +14,12 @@ class SelectSeatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<SelectSeatPageController>();
 
-    List<int> seatList = [
-      3,
-      5,
-      5,
-      5,
-      5,
-    ];
     var phoneWidth = MediaQuery.of(context).size.width;
-    var phoneHeight = MediaQuery.of(context).size.height;
     Movie movie = Get.arguments['movie'];
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           child: Column(
             children: [
               Container(
@@ -39,7 +31,7 @@ class SelectSeatPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.arrow_back,
                       size: 24,
                     ),
@@ -66,7 +58,7 @@ class SelectSeatPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Container(
@@ -85,13 +77,13 @@ class SelectSeatPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Container(
                 width: phoneWidth - 2 * 40,
                 height: 84,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.contain,
                     image: AssetImage('assets/screen.png'),
@@ -140,7 +132,7 @@ class SelectSeatPage extends StatelessWidget {
                   );
                 }),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -156,14 +148,14 @@ class SelectSeatPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Text(
                     'Available',
                     style: greySmallText.copyWith(fontSize: 10),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Container(
@@ -177,14 +169,14 @@ class SelectSeatPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Text(
                     'Booked',
                     style: greySmallText.copyWith(fontSize: 10),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Container(
@@ -195,7 +187,7 @@ class SelectSeatPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 8,
                   ),
                   Text(
@@ -204,7 +196,7 @@ class SelectSeatPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Obx(

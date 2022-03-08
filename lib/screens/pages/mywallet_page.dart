@@ -167,8 +167,8 @@ class MyWalletPage extends StatelessWidget {
                                       width: 14,
                                       height: 14,
                                       decoration: const BoxDecoration(
-                                        image: const DecorationImage(
-                                          image: const AssetImage(
+                                        image: DecorationImage(
+                                          image: AssetImage(
                                               'assets/icons/checklist.png'),
                                         ),
                                       ),
@@ -183,7 +183,7 @@ class MyWalletPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text(
@@ -192,36 +192,36 @@ class MyWalletPage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
-                RecentTransactionWidget(
+                const RecentTransactionWidget(
                   title: 'Avengers: Infinity Wars',
                   subtitle: 'CGV Paris van Java Mall',
                   amount: 650000,
                   imageMovie: 'avengers.jpg',
                 ),
-                RecentTransactionWidget(
+                const RecentTransactionWidget(
                   subtitle: 'Wednesday, 22 January 2022',
                   amount: 800400000,
                 ),
-                RecentTransactionWidget(
+                const RecentTransactionWidget(
                   subtitle: 'Wednesday, 22 January 2022',
                   amount: 800400000,
                 ),
-                RecentTransactionWidget(
+                const RecentTransactionWidget(
                   subtitle: 'Wednesday, 22 January 2022',
                   amount: 800400000,
                 ),
-                RecentTransactionWidget(
+                const RecentTransactionWidget(
                   subtitle: 'Wednesday, 22 January 2022',
                   amount: 800400000,
                 ),
-                RecentTransactionWidget(
+                const RecentTransactionWidget(
                   subtitle: 'Wednesday, 22 January 2022',
                   amount: 800400000,
                 ),
-                RecentTransactionWidget(
+                const RecentTransactionWidget(
                   subtitle: 'Wednesday, 22 January 2022',
                   amount: 800400000,
                 ),

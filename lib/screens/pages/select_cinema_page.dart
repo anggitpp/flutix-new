@@ -17,7 +17,7 @@ class SelectCinemaPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 36,
               ),
               Container(
@@ -29,12 +29,12 @@ class SelectCinemaPage extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () => Get.back(),
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back,
                         size: 24,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Text(
@@ -44,7 +44,7 @@ class SelectCinemaPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               SizedBox(
@@ -83,7 +83,7 @@ class SelectCinemaPage extends StatelessWidget {
                                 day[0].toUpperCase(),
                                 style: mediumText,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 6,
                               ),
                               Text(
@@ -99,13 +99,13 @@ class SelectCinemaPage extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: dummyCinemas.length,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   var cinema = dummyCinemas[index];
                   return Column(
@@ -118,7 +118,7 @@ class SelectCinemaPage extends StatelessWidget {
                           style: largeText,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       ),
                       SizedBox(
@@ -176,14 +176,14 @@ class SelectCinemaPage extends StatelessWidget {
                           },
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                     ],
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Obx(

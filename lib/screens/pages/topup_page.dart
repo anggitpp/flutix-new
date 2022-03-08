@@ -1,7 +1,6 @@
 import 'package:flutix/controllers/topup_page_controller.dart';
 import 'package:flutix/screens/widgets/button_text.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
-import 'package:flutix/screens/widgets/textfield.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +34,7 @@ class TopupPage extends StatelessWidget {
                 backFunction: Get.back,
                 title: 'Top Up',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               TextField(
@@ -55,14 +54,14 @@ class TopupPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
                 'Choose by Template',
                 style: smallText,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 14,
               ),
               Wrap(
@@ -113,7 +112,7 @@ class TopupPage extends StatelessWidget {
                     )
                     .toList(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               Obx(

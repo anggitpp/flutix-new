@@ -15,7 +15,6 @@ class MovieDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final phoneWidth = MediaQuery.of(context).size.width;
-    final phoneHeight = MediaQuery.of(context).size.height;
     final Movie movie = Get.arguments['movie'];
     return Scaffold(
       body: SafeArea(
@@ -53,7 +52,7 @@ class MovieDetailPage extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () => Get.back(),
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_back,
                             color: Colors.white,
                             size: 24,
@@ -65,8 +64,8 @@ class MovieDetailPage extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 270),
-                padding: EdgeInsets.only(top: 16),
+                margin: const EdgeInsets.only(top: 270),
+                padding: const EdgeInsets.only(top: 16),
                 width: phoneWidth,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -81,21 +80,21 @@ class MovieDetailPage extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 6,
                         ),
                         Text(
                           '${movie.genre} - ${movie.language}',
                           style: greySmallText,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 6,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             StarWidget(star: movie.star),
-                            SizedBox(
+                            const SizedBox(
                               width: 6,
                             ),
                             Text(
@@ -107,7 +106,7 @@ class MovieDetailPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
                     Padding(
@@ -119,7 +118,7 @@ class MovieDetailPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 12,
                     ),
                     SizedBox(
@@ -152,10 +151,10 @@ class MovieDetailPage extends StatelessWidget {
                                         fit: BoxFit.cover),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 6,
                                 ),
-                                Container(
+                                SizedBox(
                                   width: 70,
                                   height: 24,
                                   child: Text(
@@ -173,7 +172,7 @@ class MovieDetailPage extends StatelessWidget {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
                     Padding(
@@ -187,14 +186,14 @@ class MovieDetailPage extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
                           Text(
                             movie.storyline,
                             style: greySmallText,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
                           Center(
@@ -207,7 +206,7 @@ class MovieDetailPage extends StatelessWidget {
                               }),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 45,
                           ),
                         ],

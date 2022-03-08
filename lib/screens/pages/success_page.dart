@@ -24,28 +24,28 @@ class SuccessPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
             Text(
               Get.arguments['title'],
               style: largeText,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Text(
               Get.arguments['text1'],
               style: greyMediumText,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(
               Get.arguments['text2'],
               style: greyMediumText,
             ),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
             ButtonText(
@@ -53,7 +53,7 @@ class SuccessPage extends StatelessWidget {
               text: Get.arguments['buttonText'],
               function: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
