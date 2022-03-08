@@ -46,7 +46,7 @@ class WelcomePage extends StatelessWidget {
           ButtonText(
             color: purpleColor,
             text: 'Get started',
-            function: () => Get.toNamed('/mytickets'),
+            function: () => Get.toNamed('/home'),
           ),
           const SizedBox(
             height: 20,

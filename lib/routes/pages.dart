@@ -2,7 +2,6 @@ import 'package:flutix/bindings/checkout_page_binding.dart';
 import 'package:flutix/bindings/confirm_account_page_binding.dart';
 import 'package:flutix/bindings/home_page_binding.dart';
 import 'package:flutix/bindings/login_page_binding.dart';
-import 'package:flutix/bindings/my_tickets_page_binding.dart';
 import 'package:flutix/bindings/registration_page_binding.dart';
 import 'package:flutix/bindings/select_cinema_page.dart';
 import 'package:flutix/bindings/select_genre_page_binding.dart';
@@ -14,7 +13,6 @@ import 'package:flutix/screens/pages/confirm_account_page.dart';
 import 'package:flutix/screens/pages/home_page.dart';
 import 'package:flutix/screens/pages/login_page.dart';
 import 'package:flutix/screens/pages/movie_detail_page.dart';
-import 'package:flutix/screens/pages/my_tickets_page.dart';
 import 'package:flutix/screens/pages/mywallet_page.dart';
 import 'package:flutix/screens/pages/registration_page.dart';
 import 'package:flutix/screens/pages/select_cinema_page.dart';
@@ -88,11 +86,6 @@ class Pages {
     GetPage(
       name: RouteName.mywallet,
       page: () => const MyWalletPage(),
-    ),
-    GetPage(
-      name: RouteName.mytickets,
-      page: () => const MyTicketsPage(),
-      binding: MyTicketsPageBinding(),
     ),
     GetPage(
       name: RouteName.ticketdetail,

@@ -22,13 +22,13 @@ class TicketDetailPage extends StatelessWidget {
             backFunction: Get.back,
             title: 'Ticket Details',
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
             width: phoneWidth - 2 * defaultMargin,
             height: 170,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(12),
                 topRight: Radius.circular(12),
@@ -41,12 +41,12 @@ class TicketDetailPage extends StatelessWidget {
           ),
           Container(
             width: phoneWidth,
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 16,
             ),
             margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(12),
@@ -63,20 +63,20 @@ class TicketDetailPage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Text(
                   'Action - English',
                   style: greySmallText,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Row(
                   children: [
-                    StarWidget(star: 7),
-                    SizedBox(
+                    const StarWidget(star: 7),
+                    const SizedBox(
                       width: 3,
                     ),
                     Text(
@@ -85,7 +85,7 @@ class TicketDetailPage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
@@ -101,7 +101,7 @@ class TicketDetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -120,7 +120,7 @@ class TicketDetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -139,7 +139,7 @@ class TicketDetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -158,14 +158,14 @@ class TicketDetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 DashSeparator(
                   height: 1,
                   color: greyColor,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -178,21 +178,21 @@ class TicketDetailPage extends StatelessWidget {
                           'Name',
                           style: greyMediumText,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
                         Text(
                           'Angga Risky',
                           style: mediumText,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Text(
                           'Paid',
                           style: greyMediumText,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 2,
                         ),
                         Text(
@@ -208,7 +208,7 @@ class TicketDetailPage extends StatelessWidget {
                     Container(
                       width: 100,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage('assets/qr.png'))),
                     )
