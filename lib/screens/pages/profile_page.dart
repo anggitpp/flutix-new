@@ -56,26 +56,29 @@ class ProfilePage extends StatelessWidget {
               width: phoneWidth - 2 * defaultMargin,
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Container(
-                        width: 24,
-                        height: 24,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage('assets/icons/profile.png'),
+                  GestureDetector(
+                    onTap: () => Get.toNamed('/editProfile'),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 24,
+                          height: 24,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage('assets/icons/profile.png'),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Edit Profile',
-                        style: mediumText,
-                      ),
-                    ],
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Edit Profile',
+                          style: mediumText,
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -122,7 +125,10 @@ class ProfilePage extends StatelessWidget {
                     height: 100,
                   ),
                   ButtonText(
-                      color: purpleColor, text: 'Logout', function: () {}),
+                    color: purpleColor,
+                    text: 'Logout',
+                    function: () {},
+                  ),
                 ],
               ),
             ),

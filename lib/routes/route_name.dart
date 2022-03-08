@@ -15,4 +15,5 @@ class RouteName {
   static const mytickets = '/mytickets';
   static const ticketdetail = '/ticketdetail';
   static const profile = '/profile';
+  static const editProfile = '/editProfile';
 }

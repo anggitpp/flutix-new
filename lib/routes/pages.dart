@@ -1,5 +1,6 @@
 import 'package:flutix/bindings/checkout_page_binding.dart';
 import 'package:flutix/bindings/confirm_account_page_binding.dart';
+import 'package:flutix/bindings/edit_profile_page_binding.dart';
 import 'package:flutix/bindings/home_page_binding.dart';
 import 'package:flutix/bindings/login_page_binding.dart';
 import 'package:flutix/bindings/registration_page_binding.dart';
@@ -10,6 +11,7 @@ import 'package:flutix/bindings/topup_page_binding.dart';
 import 'package:flutix/routes/route_name.dart';
 import 'package:flutix/screens/pages/checkout_page.dart';
 import 'package:flutix/screens/pages/confirm_account_page.dart';
+import 'package:flutix/screens/pages/edit_profile_page.dart';
 import 'package:flutix/screens/pages/home_page.dart';
 import 'package:flutix/screens/pages/login_page.dart';
 import 'package:flutix/screens/pages/movie_detail_page.dart';
@@ -95,6 +97,11 @@ class Pages {
     GetPage(
       name: RouteName.profile,
       page: () => const ProfilePage(),
+    ),
+    GetPage(
+      name: RouteName.editProfile,
+      binding: EditProfilePageBinding(),
+      page: () => const EditProfilePage(),
     ),
   ];
 }

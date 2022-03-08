@@ -35,7 +35,7 @@ class HeaderTitle extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: largeText.copyWith(fontWeight: FontWeight.w600),
+            style: largeText.copyWith(fontWeight: FontWeight.w600, height: 1.5),
           ),
           const SizedBox(
             width: 24,
