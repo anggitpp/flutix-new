@@ -27,206 +27,210 @@ class MyWalletPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                HeaderTitle(
-                  backFunction: Get.back,
-                  title: 'My Wallet',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HeaderTitle(
+                backFunction: Get.back,
+                title: 'My Wallet',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                width: phoneWidth - 2 * defaultMargin,
+                margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                height: 185,
+                decoration: BoxDecoration(
+                  color: '382A74'.toColor(),
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: phoneWidth - 2 * defaultMargin,
-                  height: 185,
-                  decoration: BoxDecoration(
-                    color: '382A74'.toColor(),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(left: 20, top: 20),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 18,
-                              height: 18,
-                              decoration: BoxDecoration(
-                                color: 'FFF2CB'.toColor(),
-                                shape: BoxShape.circle,
-                              ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(left: 20, top: 20),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 18,
+                            height: 18,
+                            decoration: BoxDecoration(
+                              color: 'FFF2CB'.toColor(),
+                              shape: BoxShape.circle,
                             ),
-                            const SizedBox(
-                              width: 4,
-                            ),
-                            Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                color: yellowColor,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Text(
-                          NumberFormat.currency(
-                                  locale: 'id',
-                                  symbol: 'IDR ',
-                                  decimalDigits: 0)
-                              .format(904592934),
-                          style: currencySmallText.copyWith(
-                            color: Colors.white,
-                            fontSize: 28,
                           ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: yellowColor,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(
+                        NumberFormat.currency(
+                                locale: 'id', symbol: 'IDR ', decimalDigits: 0)
+                            .format(904592934),
+                        style: currencySmallText.copyWith(
+                          color: Colors.white,
+                          fontSize: 28,
                         ),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 20, bottom: 20),
-                        child: Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Card Holder',
-                                  style: smallText.copyWith(
-                                    color: Colors.white,
-                                    fontSize: 10,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left: 20, bottom: 20),
+                      child: Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Card Holder',
+                                style: smallText.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Angga Risky',
+                                    style: smallText.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      'Angga Risky',
-                                      style: smallText.copyWith(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 4,
-                                    ),
-                                    Container(
-                                      width: 14,
-                                      height: 14,
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/icons/checklist.png'),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 30,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Card ID',
-                                  style: smallText.copyWith(
-                                    color: Colors.white,
-                                    fontSize: 10,
+                                  const SizedBox(
+                                    width: 4,
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      'BWAFLUTIX',
-                                      style: smallText.copyWith(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
+                                  Container(
+                                    width: 14,
+                                    height: 14,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/icons/checklist.png'),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 4,
-                                    ),
-                                    Container(
-                                      width: 14,
-                                      height: 14,
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/icons/checklist.png'),
-                                        ),
-                                      ),
-                                    )
-                                  ],
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            width: 30,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Card ID',
+                                style: smallText.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 10,
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'BWAFLUTIX',
+                                    style: smallText.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  Container(
+                                    width: 14,
+                                    height: 14,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/icons/checklist.png'),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 20,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Recent Transactions',
+                      style: smallText.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    const RecentTransactionWidget(
+                      title: 'Avengers: Infinity Wars',
+                      subtitle: 'CGV Paris van Java Mall',
+                      amount: 650000,
+                      imageMovie: 'avengers.jpg',
+                    ),
+                    const RecentTransactionWidget(
+                      subtitle: 'Wednesday, 22 January 2022',
+                      amount: 800400000,
+                    ),
+                    const RecentTransactionWidget(
+                      subtitle: 'Wednesday, 22 January 2022',
+                      amount: 800400000,
+                    ),
+                    const RecentTransactionWidget(
+                      subtitle: 'Wednesday, 22 January 2022',
+                      amount: 800400000,
+                    ),
+                    const RecentTransactionWidget(
+                      subtitle: 'Wednesday, 22 January 2022',
+                      amount: 800400000,
+                    ),
+                    const RecentTransactionWidget(
+                      subtitle: 'Wednesday, 22 January 2022',
+                      amount: 800400000,
+                    ),
+                    const RecentTransactionWidget(
+                      subtitle: 'Wednesday, 22 January 2022',
+                      amount: 800400000,
+                    ),
+                  ],
                 ),
-                Text(
-                  'Recent Transactions',
-                  style: smallText.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                const RecentTransactionWidget(
-                  title: 'Avengers: Infinity Wars',
-                  subtitle: 'CGV Paris van Java Mall',
-                  amount: 650000,
-                  imageMovie: 'avengers.jpg',
-                ),
-                const RecentTransactionWidget(
-                  subtitle: 'Wednesday, 22 January 2022',
-                  amount: 800400000,
-                ),
-                const RecentTransactionWidget(
-                  subtitle: 'Wednesday, 22 January 2022',
-                  amount: 800400000,
-                ),
-                const RecentTransactionWidget(
-                  subtitle: 'Wednesday, 22 January 2022',
-                  amount: 800400000,
-                ),
-                const RecentTransactionWidget(
-                  subtitle: 'Wednesday, 22 January 2022',
-                  amount: 800400000,
-                ),
-                const RecentTransactionWidget(
-                  subtitle: 'Wednesday, 22 January 2022',
-                  amount: 800400000,
-                ),
-                const RecentTransactionWidget(
-                  subtitle: 'Wednesday, 22 January 2022',
-                  amount: 800400000,
-                ),
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

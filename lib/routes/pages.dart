@@ -21,6 +21,7 @@ import 'package:flutix/screens/pages/select_cinema_page.dart';
 import 'package:flutix/screens/pages/select_genre_page.dart';
 import 'package:flutix/screens/pages/select_seat_page.dart';
 import 'package:flutix/screens/pages/success_page.dart';
+import 'package:flutix/screens/pages/ticket_detail_page.dart';
 import 'package:flutix/screens/pages/topup_page.dart';
 import 'package:flutix/screens/pages/welcome_page.dart';
 import 'package:get/get.dart';
@@ -92,6 +93,10 @@ class Pages {
       name: RouteName.mytickets,
       page: () => const MyTicketsPage(),
       binding: MyTicketsPageBinding(),
+    ),
+    GetPage(
+      name: RouteName.ticketdetail,
+      page: () => const TicketDetailPage(),
     ),
   ];
 }

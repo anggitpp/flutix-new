@@ -108,13 +108,16 @@ class MyTicketsPage extends StatelessWidget {
                   horizontal: defaultMargin,
                 ),
                 child: Column(
-                  children: const [
-                    MyTicketsWidget(
-                      title: 'Avengers: Infinity Wars',
-                      subtitle: 'CGV Paris van Java Mall',
-                      language: 'English',
-                      genre: 'Action',
-                      imageMovie: 'avengers.jpg',
+                  children: [
+                    InkWell(
+                      onTap: () => Get.toNamed('/ticketdetail'),
+                      child: MyTicketsWidget(
+                        title: 'Avengers: Infinity Wars',
+                        subtitle: 'CGV Paris van Java Mall',
+                        language: 'English',
+                        genre: 'Action',
+                        imageMovie: 'avengers.jpg',
+                      ),
                     ),
                     MyTicketsWidget(
                       title: 'Avengers: Infinity Wars',
