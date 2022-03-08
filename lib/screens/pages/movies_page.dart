@@ -6,6 +6,7 @@ import 'package:flutix/screens/widgets/now_playing_banner.dart';
 import 'package:flutix/screens/widgets/promo_card.dart';
 import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MoviesPage extends StatelessWidget {
   const MoviesPage({Key? key}) : super(key: key);
@@ -29,40 +30,43 @@ class MoviesPage extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 24, bottom: 30),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 60,
-                  height: 60,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/nophoto.png'),
+            child: GestureDetector(
+              onTap: () => Get.toNamed('/profile'),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/nophoto.png'),
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 16,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Angga Risky',
-                      style: mediumText.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'IDR 22.523',
-                      style: currencySmallText.copyWith(color: yellowColor),
-                    )
-                  ],
-                )
-              ],
+                  const SizedBox(
+                    width: 16,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Angga Risky',
+                        style: mediumText.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        'IDR 22.523',
+                        style: currencySmallText.copyWith(color: yellowColor),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

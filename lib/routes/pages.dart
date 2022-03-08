@@ -14,6 +14,7 @@ import 'package:flutix/screens/pages/home_page.dart';
 import 'package:flutix/screens/pages/login_page.dart';
 import 'package:flutix/screens/pages/movie_detail_page.dart';
 import 'package:flutix/screens/pages/mywallet_page.dart';
+import 'package:flutix/screens/pages/profile_page.dart';
 import 'package:flutix/screens/pages/registration_page.dart';
 import 'package:flutix/screens/pages/select_cinema_page.dart';
 import 'package:flutix/screens/pages/select_genre_page.dart';
@@ -90,6 +91,10 @@ class Pages {
     GetPage(
       name: RouteName.ticketdetail,
       page: () => const TicketDetailPage(),
+    ),
+    GetPage(
+      name: RouteName.profile,
+      page: () => const ProfilePage(),
     ),
   ];
 }

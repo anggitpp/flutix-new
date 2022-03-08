@@ -14,4 +14,5 @@ class RouteName {
   static const mywallet = '/mywallet';
   static const mytickets = '/mytickets';
   static const ticketdetail = '/ticketdetail';
+  static const profile = '/profile';
 }
