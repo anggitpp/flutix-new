@@ -1,8 +1,9 @@
-import 'package:flutix/screens/widgets/button_text.dart';
-import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
+import '../../config/theme.dart';
+import '../../widgets/button_text.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class WelcomePage extends StatelessWidget {
           ),
           Text(
             'New Experience',
-            style: largeText.copyWith(
+            style: AppTextStyle.largeText.copyWith(
               fontWeight: FontWeight.w400,
             ),
           ),
@@ -48,14 +49,14 @@ class WelcomePage extends StatelessWidget {
           ),
           Text(
             'Watch a new movie much\neasier than any before',
-            style: greyMediumText,
+            style: AppTextStyle.greyMediumText,
             textAlign: TextAlign.center,
           ),
           const SizedBox(
             height: 70,
           ),
           ButtonText(
-            color: purpleColor,
+            color: AppColors.purpleColor,
             text: 'Get started',
             function: () => Get.toNamed('/home'),
           ),
@@ -67,13 +68,14 @@ class WelcomePage extends StatelessWidget {
             children: [
               Text(
                 'Already have an account? ',
-                style: greySmallText,
+                style: AppTextStyle.greySmallText,
               ),
               InkWell(
                 onTap: () => Get.toNamed('/login'),
                 child: Text(
                   'Sign In',
-                  style: smallText.copyWith(color: purpleColor),
+                  style: AppTextStyle.smallText
+                      .copyWith(color: AppColors.purpleColor),
                 ),
               )
             ],

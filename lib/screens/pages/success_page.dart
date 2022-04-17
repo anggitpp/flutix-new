@@ -1,6 +1,6 @@
 import 'package:flutix/controllers/home_page_controller.dart';
-import 'package:flutix/screens/widgets/button_text.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../widgets/button_text.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -48,27 +48,27 @@ class SuccessPage extends StatelessWidget {
               ),
               Text(
                 Get.arguments['title'],
-                style: largeText,
+                style: AppTextStyle.largeText,
               ),
               const SizedBox(
                 height: 16,
               ),
               Text(
                 Get.arguments['text1'],
-                style: greyMediumText,
+                style: AppTextStyle.greyMediumText,
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
                 Get.arguments['text2'],
-                style: greyMediumText,
+                style: AppTextStyle.greyMediumText,
               ),
               const SizedBox(
                 height: 70,
               ),
               ButtonText(
-                color: purpleColor,
+                color: AppColors.purpleColor,
                 text: Get.arguments['buttonText'],
                 function: () {
                   Get.toNamed('/home');
@@ -83,14 +83,14 @@ class SuccessPage extends StatelessWidget {
                 children: [
                   Text(
                     'Discover new movie? ',
-                    style: greySmallText,
+                    style: AppTextStyle.greySmallText,
                   ),
                   InkWell(
                     onTap: () => Get.offAllNamed('/home'),
                     child: Text(
                       'Back to Home',
-                      style: smallText.copyWith(
-                        color: purpleColor,
+                      style: AppTextStyle.smallText.copyWith(
+                        color: AppColors.purpleColor,
                       ),
                     ),
                   )

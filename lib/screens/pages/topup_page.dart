@@ -1,7 +1,7 @@
 import 'package:flutix/controllers/topup_page_controller.dart';
-import 'package:flutix/screens/widgets/button_text.dart';
+import '../../widgets/button_text.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -36,7 +36,8 @@ class TopupPage extends StatelessWidget {
               height: 30,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppSizes.defaultMargin),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -46,14 +47,16 @@ class TopupPage extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: 'Amount',
-                      labelStyle: greyMediumText,
+                      labelStyle: AppTextStyle.greyMediumText,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(6),
-                        borderSide: BorderSide(color: lightGreyColor, width: 1),
+                        borderSide: BorderSide(
+                            color: AppColors.lightGreyColor, width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(6),
-                        borderSide: BorderSide(color: lightGreyColor, width: 1),
+                        borderSide: BorderSide(
+                            color: AppColors.lightGreyColor, width: 1),
                       ),
                     ),
                   ),
@@ -62,7 +65,7 @@ class TopupPage extends StatelessWidget {
                   ),
                   Text(
                     'Choose by Template',
-                    style: smallText,
+                    style: AppTextStyle.smallText,
                   ),
                   const SizedBox(
                     height: 14,
@@ -81,10 +84,11 @@ class TopupPage extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(6),
                                   color: e == controller.selectedTemplate.value
-                                      ? yellowColor
+                                      ? AppColors.yellowColor
                                       : Colors.white,
                                   border: Border.all(
-                                      color: lightGreyColor, width: 1),
+                                      color: AppColors.lightGreyColor,
+                                      width: 1),
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -94,8 +98,8 @@ class TopupPage extends StatelessWidget {
                                       'IDR',
                                       style:
                                           e == controller.selectedTemplate.value
-                                              ? mediumText
-                                              : greyMediumText,
+                                              ? AppTextStyle.mediumText
+                                              : AppTextStyle.greyMediumText,
                                     ),
                                     Text(
                                       NumberFormat.currency(
@@ -103,7 +107,8 @@ class TopupPage extends StatelessWidget {
                                               decimalDigits: 0,
                                               locale: 'id')
                                           .format(e),
-                                      style: currencySmallText.copyWith(
+                                      style: AppTextStyle.currencySmallText
+                                          .copyWith(
                                         color: Colors.black,
                                         fontSize: 16,
                                       ),
@@ -123,8 +128,8 @@ class TopupPage extends StatelessWidget {
                     () => Center(
                       child: ButtonText(
                         color: controller.isCanTopUp.value
-                            ? greenColor
-                            : greyColor,
+                            ? AppColors.greenColor
+                            : AppColors.greyColor,
                         text: 'Top Up Now',
                         function: controller.isCanTopUp.value
                             ? () => Get.toNamed('/success', arguments: {

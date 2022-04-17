@@ -1,4 +1,4 @@
-import 'package:flutix/model/cast.dart';
+import 'package:flutix/models/cast.dart';
 
 class Movie {
   final int id;

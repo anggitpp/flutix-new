@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 
 class HeaderTitle extends StatelessWidget {
   final String title;
@@ -15,9 +15,9 @@ class HeaderTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: defaultMargin,
-        right: defaultMargin,
+      padding: const EdgeInsets.only(
+        left: AppSizes.defaultMargin,
+        right: AppSizes.defaultMargin,
         top: 36,
       ),
       child: Row(
@@ -35,7 +35,8 @@ class HeaderTitle extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.center,
-            style: largeText.copyWith(fontWeight: FontWeight.w600, height: 1.5),
+            style: AppTextStyle.largeText
+                .copyWith(fontWeight: FontWeight.w600, height: 1.5),
           ),
           const SizedBox(
             width: 24,

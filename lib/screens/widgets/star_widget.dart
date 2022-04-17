@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 
 class StarWidget extends StatelessWidget {
   final int star;
@@ -20,10 +20,10 @@ class StarWidget extends StatelessWidget {
           Icon(
             Icons.star,
             color: (star / 2).toDouble().round() >= i
-                ? yellowColor
+                ? AppColors.yellowColor
                 : isBanner
                     ? Colors.white
-                    : lightGreyColor,
+                    : AppColors.lightGreyColor,
             size: 20,
           ),
       ],

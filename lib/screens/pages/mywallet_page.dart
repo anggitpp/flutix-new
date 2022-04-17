@@ -1,6 +1,6 @@
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/recent_transaction_widget.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -18,7 +18,7 @@ class MyWalletPage extends StatelessWidget {
         child: FloatingActionButton(
           onPressed: () {},
           // elevation: 2,
-          backgroundColor: yellowColor,
+          backgroundColor: AppColors.yellowColor,
           child: Icon(
             Icons.download,
             color: Colors.black.withOpacity(0.5),
@@ -38,8 +38,9 @@ class MyWalletPage extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                width: phoneWidth - 2 * defaultMargin,
-                margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                width: phoneWidth - 2 * AppSizes.defaultMargin,
+                margin: const EdgeInsets.symmetric(
+                    horizontal: AppSizes.defaultMargin),
                 height: 185,
                 decoration: BoxDecoration(
                   color: '382A74'.toColor(),
@@ -68,7 +69,7 @@ class MyWalletPage extends StatelessWidget {
                             width: 30,
                             height: 30,
                             decoration: BoxDecoration(
-                              color: yellowColor,
+                              color: AppColors.yellowColor,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -81,7 +82,7 @@ class MyWalletPage extends StatelessWidget {
                         NumberFormat.currency(
                                 locale: 'id', symbol: 'IDR ', decimalDigits: 0)
                             .format(904592934),
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           color: Colors.white,
                           fontSize: 28,
                         ),
@@ -96,7 +97,7 @@ class MyWalletPage extends StatelessWidget {
                             children: [
                               Text(
                                 'Card Holder',
-                                style: smallText.copyWith(
+                                style: AppTextStyle.smallText.copyWith(
                                   color: Colors.white,
                                   fontSize: 10,
                                 ),
@@ -108,7 +109,7 @@ class MyWalletPage extends StatelessWidget {
                                 children: [
                                   Text(
                                     'Angga Risky',
-                                    style: smallText.copyWith(
+                                    style: AppTextStyle.smallText.copyWith(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
@@ -139,7 +140,7 @@ class MyWalletPage extends StatelessWidget {
                             children: [
                               Text(
                                 'Card ID',
-                                style: smallText.copyWith(
+                                style: AppTextStyle.smallText.copyWith(
                                   color: Colors.white,
                                   fontSize: 10,
                                 ),
@@ -151,7 +152,7 @@ class MyWalletPage extends StatelessWidget {
                                 children: [
                                   Text(
                                     'BWAFLUTIX',
-                                    style: smallText.copyWith(
+                                    style: AppTextStyle.smallText.copyWith(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
@@ -181,7 +182,8 @@ class MyWalletPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: AppSizes.defaultMargin),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -190,7 +192,7 @@ class MyWalletPage extends StatelessWidget {
                     ),
                     Text(
                       'Recent Transactions',
-                      style: smallText.copyWith(
+                      style: AppTextStyle.smallText.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
                     ),

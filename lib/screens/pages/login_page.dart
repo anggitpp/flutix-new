@@ -1,9 +1,10 @@
 import 'package:flutix/controllers/login_page_controller.dart';
-import 'package:flutix/screens/widgets/button_next.dart';
 import 'package:flutix/screens/widgets/textfield.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../widgets/button_next.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -20,8 +21,8 @@ class LoginPage extends StatelessWidget {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 30),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppSizes.defaultMargin, vertical: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -38,7 +39,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   Text(
                     'Welcome Back,\nExplorer!',
-                    style: largeText.copyWith(
+                    style: AppTextStyle.largeText.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -79,10 +80,10 @@ class LoginPage extends StatelessWidget {
                           child: ButtonNext(
                             arrowColor: controller.isCanSignIn.value
                                 ? Colors.white
-                                : darkGreyColor,
+                                : AppColors.darkGreyColor,
                             backgroundColor: controller.isCanSignIn.value
-                                ? purpleColor
-                                : lightGreyColor,
+                                ? AppColors.purpleColor
+                                : AppColors.lightGreyColor,
                           ),
                         ),
                       ],
@@ -97,14 +98,15 @@ class LoginPage extends StatelessWidget {
                       children: [
                         Text(
                           'Start fresh now?',
-                          style: greySmallText.copyWith(color: greyColor),
+                          style: AppTextStyle.greySmallText
+                              .copyWith(color: AppColors.greyColor),
                         ),
                         InkWell(
                           onTap: (() => Get.toNamed('/registration')),
                           child: Text(
                             ' Sign Up',
-                            style: smallText.copyWith(
-                                color: purpleColor,
+                            style: AppTextStyle.smallText.copyWith(
+                                color: AppColors.purpleColor,
                                 fontWeight: FontWeight.w600),
                           ),
                         )

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutix/model/movie.dart';
-import 'package:flutix/shared/theme.dart';
+import 'package:flutix/models/movie.dart';
+
+import '../../config/theme.dart';
 
 class ComingSoonBanner extends StatelessWidget {
   const ComingSoonBanner({
@@ -17,8 +18,8 @@ class ComingSoonBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        left: index == 0 ? defaultMargin : 16,
-        right: index == 5 ? defaultMargin : 0,
+        left: index == 0 ? AppSizes.defaultMargin : 16,
+        right: index == 5 ? AppSizes.defaultMargin : 0,
       ),
       width: 100,
       height: 140,

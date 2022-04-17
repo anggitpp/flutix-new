@@ -1,9 +1,9 @@
-import 'package:flutix/model/cinema.dart';
-import 'package:flutix/model/movie.dart';
-import 'package:flutix/screens/widgets/button_text.dart';
+import 'package:flutix/models/cinema.dart';
+import 'package:flutix/models/movie.dart';
+import '../../widgets/button_text.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -47,7 +47,7 @@ class CheckoutPage extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              width: phoneWidth - 2 * defaultMargin,
+              width: phoneWidth - 2 * AppSizes.defaultMargin,
               height: 90,
               child: Row(
                 children: [
@@ -71,7 +71,7 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         movie.title,
-                        style: largeText.copyWith(
+                        style: AppTextStyle.largeText.copyWith(
                           fontSize: 18,
                         ),
                       ),
@@ -80,7 +80,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                       Text(
                         '${movie.genre} - ${movie.language}',
-                        style: greySmallText,
+                        style: AppTextStyle.greySmallText,
                       ),
                       const SizedBox(
                         height: 6,
@@ -93,7 +93,7 @@ class CheckoutPage extends StatelessWidget {
                           ),
                           Text(
                             movie.star.toString() + '/10',
-                            style: currencySmallText,
+                            style: AppTextStyle.currencySmallText,
                           )
                         ],
                       ),
@@ -106,15 +106,16 @@ class CheckoutPage extends StatelessWidget {
               height: 20,
             ),
             Container(
-              width: phoneWidth - 2 * defaultMargin,
+              width: phoneWidth - 2 * AppSizes.defaultMargin,
               height: 1,
-              color: lightGreyColor,
+              color: AppColors.lightGreyColor,
             ),
             const SizedBox(
               height: 20,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: AppSizes.defaultMargin),
               child: Column(
                 children: [
                   Row(
@@ -122,11 +123,11 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'ID Order',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         '22081996',
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
                         ),
@@ -141,11 +142,11 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'Cinema',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         cinema.name,
-                        style: mediumText,
+                        style: AppTextStyle.mediumText,
                       ),
                     ],
                   ),
@@ -157,11 +158,11 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'Date & Time',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         '$formattedDate, ${Get.arguments['time']}',
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
                         ),
@@ -176,14 +177,14 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'Seat Number',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         Get.arguments['seat']
                             .toString()
                             .replaceAll('[', '')
                             .replaceAll(']', ''),
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
                         ),
@@ -198,7 +199,7 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'Price',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         NumberFormat.currency(
@@ -208,7 +209,7 @@ class CheckoutPage extends StatelessWidget {
                                 .format(25000) +
                             ' x ' +
                             Get.arguments['seat'].length.toString(),
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
                         ),
@@ -223,7 +224,7 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'Fee',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         NumberFormat.currency(
@@ -233,7 +234,7 @@ class CheckoutPage extends StatelessWidget {
                                 .format(2500) +
                             ' x ' +
                             Get.arguments['seat'].length.toString(),
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           fontSize: 16,
                           color: Colors.black,
                         ),
@@ -248,13 +249,13 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'Total',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         NumberFormat.currency(
                                 locale: 'id', symbol: 'Rp ', decimalDigits: 0)
                             .format(25000 * Get.arguments['seat'].length),
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -268,7 +269,7 @@ class CheckoutPage extends StatelessWidget {
                   Container(
                     width: phoneWidth,
                     height: 1,
-                    color: lightGreyColor,
+                    color: AppColors.lightGreyColor,
                   ),
                   const SizedBox(
                     height: 20,
@@ -278,16 +279,16 @@ class CheckoutPage extends StatelessWidget {
                     children: [
                       Text(
                         'Your Wallet',
-                        style: greyMediumText,
+                        style: AppTextStyle.greyMediumText,
                       ),
                       Text(
                         NumberFormat.currency(
                                 locale: 'id', symbol: 'Rp ', decimalDigits: 0)
                             .format(480500500),
-                        style: currencySmallText.copyWith(
+                        style: AppTextStyle.currencySmallText.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: greenColor,
+                          color: AppColors.greenColor,
                         ),
                       ),
                     ],
@@ -296,7 +297,7 @@ class CheckoutPage extends StatelessWidget {
                     height: 36,
                   ),
                   ButtonText(
-                    color: greenColor,
+                    color: AppColors.greenColor,
                     text: 'Checkout Now',
                     function: () => Get.offAllNamed('/success', arguments: {
                       'image': 'success_checkout.png',

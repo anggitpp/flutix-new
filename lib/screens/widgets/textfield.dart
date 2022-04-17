@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 
 // ignore: must_be_immutable
 class CreateTextField extends StatelessWidget {
@@ -30,14 +30,14 @@ class CreateTextField extends StatelessWidget {
       obscureText: obsecureText,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: greyMediumText.copyWith(color: labelColor),
+        labelStyle: AppTextStyle.greyMediumText.copyWith(color: labelColor),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6),
-          borderSide: BorderSide(color: lightGreyColor, width: 1),
+          borderSide: BorderSide(color: AppColors.lightGreyColor, width: 1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(6),
-          borderSide: BorderSide(color: yellowColor, width: 1),
+          borderSide: BorderSide(color: AppColors.yellowColor, width: 1),
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutix/controllers/select_cinema_page.controller.dart';
-import 'package:flutix/model/cinema.dart';
-import 'package:flutix/shared/theme.dart';
+import 'package:flutix/models/cinema.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -18,7 +18,7 @@ class SelectCinemaPage extends StatelessWidget {
       appBar: AppBar(
         toolbarHeight: 0,
         elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.white,
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
@@ -33,7 +33,7 @@ class SelectCinemaPage extends StatelessWidget {
               ),
               Container(
                 width: phoneWidth,
-                padding: EdgeInsets.only(left: defaultMargin),
+                padding: const EdgeInsets.only(left: AppSizes.defaultMargin),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +50,8 @@ class SelectCinemaPage extends StatelessWidget {
                     ),
                     Text(
                       'Choose Date',
-                      style: largeText.copyWith(fontWeight: FontWeight.bold),
+                      style: AppTextStyle.largeText
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -74,17 +75,18 @@ class SelectCinemaPage extends StatelessWidget {
                           height: 90,
                           width: 70,
                           margin: EdgeInsets.only(
-                            left: index == 0 ? defaultMargin : 16,
+                            left: index == 0 ? AppSizes.defaultMargin : 16,
                             right: index == controller.days.length - 1
-                                ? defaultMargin
+                                ? AppSizes.defaultMargin
                                 : 0,
                           ),
                           decoration: BoxDecoration(
                             color: controller.selectedDate.value == day[1]
-                                ? yellowColor
+                                ? AppColors.yellowColor
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(6),
-                            border: Border.all(color: greyColor, width: 1),
+                            border: Border.all(
+                                color: AppColors.greyColor, width: 1),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -92,14 +94,14 @@ class SelectCinemaPage extends StatelessWidget {
                             children: [
                               Text(
                                 day[0].toUpperCase(),
-                                style: mediumText,
+                                style: AppTextStyle.mediumText,
                               ),
                               const SizedBox(
                                 height: 6,
                               ),
                               Text(
                                 day[1],
-                                style: currencySmallText.copyWith(
+                                style: AppTextStyle.currencySmallText.copyWith(
                                     fontSize: 16, color: Colors.black),
                               )
                             ],
@@ -123,10 +125,11 @@ class SelectCinemaPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: AppSizes.defaultMargin),
                         child: Text(
                           dummyCinemas[index].name,
-                          style: largeText,
+                          style: AppTextStyle.largeText,
                         ),
                       ),
                       const SizedBox(
@@ -151,9 +154,11 @@ class SelectCinemaPage extends StatelessWidget {
                                   width: 90,
                                   height: 50,
                                   margin: EdgeInsets.only(
-                                    left: index == 0 ? defaultMargin : 16,
+                                    left: index == 0
+                                        ? AppSizes.defaultMargin
+                                        : 16,
                                     right: index == controller.times.length - 1
-                                        ? defaultMargin
+                                        ? AppSizes.defaultMargin
                                         : 0,
                                   ),
                                   decoration: BoxDecoration(
@@ -161,11 +166,11 @@ class SelectCinemaPage extends StatelessWidget {
                                                 cinema.id &&
                                             controller.selectedTime.value ==
                                                 time
-                                        ? yellowColor
+                                        ? AppColors.yellowColor
                                         : Colors.white,
                                     borderRadius: BorderRadius.circular(6),
-                                    border:
-                                        Border.all(color: greyColor, width: 1),
+                                    border: Border.all(
+                                        color: AppColors.greyColor, width: 1),
                                   ),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -174,7 +179,8 @@ class SelectCinemaPage extends StatelessWidget {
                                     children: [
                                       Text(
                                         time,
-                                        style: currencySmallText.copyWith(
+                                        style: AppTextStyle.currencySmallText
+                                            .copyWith(
                                           fontSize: 16,
                                           color: Colors.black,
                                         ),
@@ -214,13 +220,13 @@ class SelectCinemaPage extends StatelessWidget {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: controller.isCanNextStep.value
-                              ? purpleColor
-                              : lightGreyColor),
+                              ? AppColors.purpleColor
+                              : AppColors.lightGreyColor),
                       child: Icon(
                         Icons.arrow_forward,
                         color: controller.isCanNextStep.value
                             ? Colors.white
-                            : darkGreyColor,
+                            : AppColors.darkGreyColor,
                         size: 30,
                       ),
                     ),

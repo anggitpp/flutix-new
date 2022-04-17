@@ -1,6 +1,5 @@
+import 'package:flutix/config/theme.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutix/shared/theme.dart';
 
 class ButtonText extends StatelessWidget {
   final Color color;
@@ -23,7 +22,7 @@ class ButtonText extends StatelessWidget {
         onPressed: function,
         child: Text(
           text,
-          style: mediumText.copyWith(
+          style: AppTextStyle.mediumText.copyWith(
             color: Colors.white,
           ),
         ),

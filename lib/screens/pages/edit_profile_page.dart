@@ -1,9 +1,8 @@
 import 'package:flutix/controllers/edit_profile_page_controller.dart';
-import 'package:flutix/screens/widgets/button_next.dart';
-import 'package:flutix/screens/widgets/button_text.dart';
+import '../../widgets/button_text.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/textfield.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +21,7 @@ class EditProfilePage extends StatelessWidget {
               backFunction: Get.back,
               title: 'Edit Your\nProfile',
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Obx(
@@ -81,7 +80,8 @@ class EditProfilePage extends StatelessWidget {
             ),
             Obx(
               () => Container(
-                margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                margin: const EdgeInsets.symmetric(
+                    horizontal: AppSizes.defaultMargin),
                 child: Column(
                   children: [
                     Focus(
@@ -139,8 +139,9 @@ class EditProfilePage extends StatelessWidget {
                       height: 30,
                     ),
                     ButtonText(
-                      color:
-                          controller.isCanSignUp.value ? greenColor : greyColor,
+                      color: controller.isCanSignUp.value
+                          ? AppColors.greenColor
+                          : AppColors.greyColor,
                       text: 'Update My Profile',
                       function: () {},
                     )

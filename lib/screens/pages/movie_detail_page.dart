@@ -1,10 +1,10 @@
-import 'package:flutix/screens/widgets/button_text.dart';
+import '../../widgets/button_text.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutix/model/cast.dart';
-import 'package:flutix/model/movie.dart';
-import 'package:flutix/shared/theme.dart';
+import 'package:flutix/models/cast.dart';
+import 'package:flutix/models/movie.dart';
+import '../../config/theme.dart';
 import 'package:get/get.dart';
 
 class MovieDetailPage extends StatelessWidget {
@@ -41,7 +41,8 @@ class MovieDetailPage extends StatelessWidget {
                   child: Container(
                     width: phoneWidth,
                     height: 270,
-                    padding: EdgeInsets.only(left: defaultMargin, top: 16),
+                    padding: const EdgeInsets.only(
+                        left: AppSizes.defaultMargin, top: 16),
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             fit: BoxFit.cover,
@@ -75,7 +76,7 @@ class MovieDetailPage extends StatelessWidget {
                       children: [
                         Text(
                           movie.title,
-                          style: largeText.copyWith(
+                          style: AppTextStyle.largeText.copyWith(
                             fontSize: 24,
                             fontWeight: FontWeight.w500,
                           ),
@@ -85,7 +86,7 @@ class MovieDetailPage extends StatelessWidget {
                         ),
                         Text(
                           '${movie.genre} - ${movie.language}',
-                          style: greySmallText,
+                          style: AppTextStyle.greySmallText,
                         ),
                         const SizedBox(
                           height: 6,
@@ -99,8 +100,8 @@ class MovieDetailPage extends StatelessWidget {
                             ),
                             Text(
                               movie.star.toString() + '/10',
-                              style:
-                                  currencySmallText.copyWith(color: greyColor),
+                              style: AppTextStyle.currencySmallText
+                                  .copyWith(color: AppColors.greyColor),
                             )
                           ],
                         ),
@@ -110,10 +111,11 @@ class MovieDetailPage extends StatelessWidget {
                       height: 24,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: AppSizes.defaultMargin),
                       child: Text(
                         'Cast & Crew',
-                        style: smallText.copyWith(
+                        style: AppTextStyle.smallText.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -134,9 +136,9 @@ class MovieDetailPage extends StatelessWidget {
                             width: 70,
                             height: 110,
                             margin: EdgeInsets.only(
-                                left: index == 0 ? defaultMargin : 12,
+                                left: index == 0 ? AppSizes.defaultMargin : 12,
                                 right: index == dummyCast.length - 1
-                                    ? defaultMargin
+                                    ? AppSizes.defaultMargin
                                     : 0),
                             child: Column(
                               children: [
@@ -159,7 +161,7 @@ class MovieDetailPage extends StatelessWidget {
                                   height: 24,
                                   child: Text(
                                     data.name,
-                                    style: smallText.copyWith(
+                                    style: AppTextStyle.smallText.copyWith(
                                       fontSize: 10,
                                     ),
                                     maxLines: 2,
@@ -176,13 +178,14 @@ class MovieDetailPage extends StatelessWidget {
                       height: 24,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: AppSizes.defaultMargin),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Storyline',
-                            style: smallText.copyWith(
+                            style: AppTextStyle.smallText.copyWith(
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -191,14 +194,14 @@ class MovieDetailPage extends StatelessWidget {
                           ),
                           Text(
                             movie.storyline,
-                            style: greySmallText,
+                            style: AppTextStyle.greySmallText,
                           ),
                           const SizedBox(
                             height: 30,
                           ),
                           Center(
                             child: ButtonText(
-                              color: purpleColor,
+                              color: AppColors.purpleColor,
                               text: 'Continue to Book',
                               function: () =>
                                   Get.toNamed('/selectCinema', arguments: {

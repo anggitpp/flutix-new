@@ -1,8 +1,8 @@
-import 'package:flutix/model/promo.dart';
+import 'package:flutix/models/promo.dart';
 import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 
 class PromoCard extends StatelessWidget {
   const PromoCard({
@@ -17,9 +17,11 @@ class PromoCard extends StatelessWidget {
     final phoneWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      width: phoneWidth - 2 * defaultMargin,
-      margin: EdgeInsets.only(
-          left: defaultMargin, right: defaultMargin, bottom: 16),
+      width: phoneWidth - 2 * AppSizes.defaultMargin,
+      margin: const EdgeInsets.only(
+          left: AppSizes.defaultMargin,
+          right: AppSizes.defaultMargin,
+          bottom: 16),
       height: 80,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
@@ -40,14 +42,14 @@ class PromoCard extends StatelessWidget {
             children: [
               Text(
                 promo.title,
-                style: smallText.copyWith(color: Colors.white),
+                style: AppTextStyle.smallText.copyWith(color: Colors.white),
               ),
               const SizedBox(
                 height: 4,
               ),
               Text(
                 promo.subtitle,
-                style: smallText.copyWith(
+                style: AppTextStyle.smallText.copyWith(
                   color: 'A99BE3'.toColor(),
                   fontSize: 11,
                 ),
@@ -58,14 +60,15 @@ class PromoCard extends StatelessWidget {
             children: [
               Text(
                 'OFF ',
-                style: smallText.copyWith(fontSize: 18, color: yellowColor),
+                style: AppTextStyle.smallText
+                    .copyWith(fontSize: 18, color: AppColors.yellowColor),
               ),
               Text(
                 promo.percent.toString() + '%',
-                style: currencySmallText.copyWith(
+                style: AppTextStyle.currencySmallText.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: yellowColor,
+                  color: AppColors.yellowColor,
                 ),
               )
             ],

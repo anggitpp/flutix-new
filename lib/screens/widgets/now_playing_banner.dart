@@ -1,8 +1,8 @@
-import 'package:flutix/model/movie.dart';
+import 'package:flutix/models/movie.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:get/get.dart';
 
 class NowPlayingBanner extends StatelessWidget {
@@ -23,8 +23,8 @@ class NowPlayingBanner extends StatelessWidget {
       }),
       child: Container(
         margin: EdgeInsets.only(
-          left: index == 0 ? defaultMargin : 16,
-          right: index < 4 ? 0 : defaultMargin,
+          left: index == 0 ? AppSizes.defaultMargin : 16,
+          right: index < 4 ? 0 : AppSizes.defaultMargin,
         ),
         width: 210,
         height: 140,
@@ -61,7 +61,7 @@ class NowPlayingBanner extends StatelessWidget {
                   children: [
                     Text(
                       movie.title,
-                      style: smallText.copyWith(
+                      style: AppTextStyle.smallText.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
@@ -77,7 +77,7 @@ class NowPlayingBanner extends StatelessWidget {
                         ),
                         Text(
                           movie.star.toString() + '/10',
-                          style: currencySmallText.copyWith(
+                          style: AppTextStyle.currencySmallText.copyWith(
                             color: Colors.white,
                           ),
                         ),

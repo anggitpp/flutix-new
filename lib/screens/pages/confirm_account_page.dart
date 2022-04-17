@@ -1,6 +1,6 @@
 import 'package:flutix/controllers/registration_page_controller.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supercharged/supercharged.dart';
@@ -47,14 +47,14 @@ class ConfirmAccountPage extends StatelessWidget {
           ),
           Text(
             'Welcome',
-            style: mediumText,
+            style: AppTextStyle.mediumText,
           ),
           const SizedBox(
             height: 5,
           ),
           Text(
             controller.nameController.text,
-            style: largeText.copyWith(fontWeight: FontWeight.w600),
+            style: AppTextStyle.largeText.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(
             height: 110,
@@ -72,7 +72,7 @@ class ConfirmAccountPage extends StatelessWidget {
               onPressed: () => Get.toNamed('/home'),
               child: Text(
                 'Create My Account',
-                style: mediumText.copyWith(
+                style: AppTextStyle.mediumText.copyWith(
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
                 ),

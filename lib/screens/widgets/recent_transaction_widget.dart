@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:supercharged/supercharged.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 
 class RecentTransactionWidget extends StatelessWidget {
   final String title;
@@ -23,7 +23,7 @@ class RecentTransactionWidget extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
-      width: phoneWidth - 2 * defaultMargin,
+      width: phoneWidth - 2 * AppSizes.defaultMargin,
       height: 90,
       child: Row(
         children: [
@@ -49,7 +49,7 @@ class RecentTransactionWidget extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: largeText.copyWith(
+                style: AppTextStyle.largeText.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 18,
                 ),
@@ -61,8 +61,10 @@ class RecentTransactionWidget extends StatelessWidget {
                 NumberFormat.currency(
                         locale: 'id', symbol: 'Rp. ', decimalDigits: 0)
                     .format(amount),
-                style: currencySmallText.copyWith(
-                  color: imageMovie == '' ? greenColor : 'FF5C83'.toColor(),
+                style: AppTextStyle.currencySmallText.copyWith(
+                  color: imageMovie == ''
+                      ? AppColors.greenColor
+                      : 'FF5C83'.toColor(),
                 ),
               ),
               const SizedBox(
@@ -70,7 +72,7 @@ class RecentTransactionWidget extends StatelessWidget {
               ),
               Text(
                 subtitle,
-                style: greySmallText,
+                style: AppTextStyle.greySmallText,
               ),
             ],
           )

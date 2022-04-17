@@ -1,7 +1,8 @@
 import 'package:flutix/controllers/home_page_controller.dart';
-import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../config/theme.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({Key? key}) : super(key: key);
@@ -45,11 +46,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
                       ),
                       Text(
                         e == 'movies' ? 'New Movies' : 'My Tickets',
-                        style: smallText.copyWith(
+                        style: AppTextStyle.smallText.copyWith(
                           fontSize: 11,
                           color: e == controller.selectedPage.value
                               ? Colors.black
-                              : lightGreyColor,
+                              : AppColors.lightGreyColor,
                         ),
                       )
                     ],

@@ -1,7 +1,7 @@
 import 'package:flutix/screens/widgets/dash_separator.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/star_widget.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -26,7 +26,7 @@ class TicketDetailPage extends StatelessWidget {
             height: 20,
           ),
           Container(
-            width: phoneWidth - 2 * defaultMargin,
+            width: phoneWidth - 2 * AppSizes.defaultMargin,
             height: 170,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -45,7 +45,8 @@ class TicketDetailPage extends StatelessWidget {
               horizontal: 20,
               vertical: 16,
             ),
-            margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+            margin:
+                const EdgeInsets.symmetric(horizontal: AppSizes.defaultMargin),
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -58,7 +59,7 @@ class TicketDetailPage extends StatelessWidget {
               children: [
                 Text(
                   'Avengers: Infinity Wars',
-                  style: mediumText.copyWith(
+                  style: AppTextStyle.mediumText.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
@@ -68,7 +69,7 @@ class TicketDetailPage extends StatelessWidget {
                 ),
                 Text(
                   'Action - English',
-                  style: greySmallText,
+                  style: AppTextStyle.greySmallText,
                 ),
                 const SizedBox(
                   height: 6,
@@ -81,7 +82,7 @@ class TicketDetailPage extends StatelessWidget {
                     ),
                     Text(
                       '7/10',
-                      style: currencySmallText,
+                      style: AppTextStyle.currencySmallText,
                     )
                   ],
                 ),
@@ -93,11 +94,11 @@ class TicketDetailPage extends StatelessWidget {
                   children: [
                     Text(
                       'Cinema',
-                      style: greyMediumText,
+                      style: AppTextStyle.greyMediumText,
                     ),
                     Text(
                       'Paris Van Java',
-                      style: mediumText,
+                      style: AppTextStyle.mediumText,
                     ),
                   ],
                 ),
@@ -109,11 +110,11 @@ class TicketDetailPage extends StatelessWidget {
                   children: [
                     Text(
                       'Date & Time',
-                      style: greyMediumText,
+                      style: AppTextStyle.greyMediumText,
                     ),
                     Text(
                       'Sat 21, 12:20',
-                      style: currencySmallText.copyWith(
+                      style: AppTextStyle.currencySmallText.copyWith(
                         fontSize: 16,
                         color: Colors.black,
                       ),
@@ -128,11 +129,11 @@ class TicketDetailPage extends StatelessWidget {
                   children: [
                     Text(
                       'Seat Number',
-                      style: greyMediumText,
+                      style: AppTextStyle.greyMediumText,
                     ),
                     Text(
                       'B3, B4',
-                      style: currencySmallText.copyWith(
+                      style: AppTextStyle.currencySmallText.copyWith(
                         fontSize: 16,
                         color: Colors.black,
                       ),
@@ -147,11 +148,11 @@ class TicketDetailPage extends StatelessWidget {
                   children: [
                     Text(
                       'ID Order',
-                      style: greyMediumText,
+                      style: AppTextStyle.greyMediumText,
                     ),
                     Text(
                       '22081996',
-                      style: currencySmallText.copyWith(
+                      style: AppTextStyle.currencySmallText.copyWith(
                         fontSize: 16,
                         color: Colors.black,
                       ),
@@ -163,7 +164,7 @@ class TicketDetailPage extends StatelessWidget {
                 ),
                 DashSeparator(
                   height: 1,
-                  color: greyColor,
+                  color: AppColors.greyColor,
                 ),
                 const SizedBox(
                   height: 20,
@@ -176,21 +177,21 @@ class TicketDetailPage extends StatelessWidget {
                       children: [
                         Text(
                           'Name',
-                          style: greyMediumText,
+                          style: AppTextStyle.greyMediumText,
                         ),
                         const SizedBox(
                           height: 2,
                         ),
                         Text(
                           'Angga Risky',
-                          style: mediumText,
+                          style: AppTextStyle.mediumText,
                         ),
                         const SizedBox(
                           height: 8,
                         ),
                         Text(
                           'Paid',
-                          style: greyMediumText,
+                          style: AppTextStyle.greyMediumText,
                         ),
                         const SizedBox(
                           height: 2,
@@ -201,7 +202,7 @@ class TicketDetailPage extends StatelessWidget {
                                   symbol: 'Rp. ',
                                   decimalDigits: 0)
                               .format(180409),
-                          style: mediumText,
+                          style: AppTextStyle.mediumText,
                         ),
                       ],
                     ),

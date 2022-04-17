@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 
 class TextBoxWidget extends StatelessWidget {
   const TextBoxWidget({
@@ -26,7 +26,7 @@ class TextBoxWidget extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
         color: color,
-        border: Border.all(color: lightGreyColor, width: 1),
+        border: Border.all(color: AppColors.lightGreyColor, width: 1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,12 +35,12 @@ class TextBoxWidget extends StatelessWidget {
           Text(
             text,
             style: isCurrency
-                ? currencySmallText.copyWith(
+                ? AppTextStyle.currencySmallText.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                   )
-                : mediumText.copyWith(
+                : AppTextStyle.mediumText.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
           ),

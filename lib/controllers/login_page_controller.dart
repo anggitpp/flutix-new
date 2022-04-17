@@ -1,10 +1,11 @@
-import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../config/theme.dart';
+
 class LoginPageController extends GetxController {
-  var emailLabelColor = greyColor.obs;
-  var passwordLabelColor = greyColor.obs;
+  var emailLabelColor = AppColors.greyColor.obs;
+  var passwordLabelColor = AppColors.greyColor.obs;
 
   var isCanSignIn = false.obs;
 
@@ -13,17 +14,17 @@ class LoginPageController extends GetxController {
 
   void changeFocusEmail(hasFocus) {
     if (hasFocus) {
-      emailLabelColor.value = yellowColor;
+      emailLabelColor.value = AppColors.yellowColor;
     } else {
-      emailLabelColor.value = greyColor;
+      emailLabelColor.value = AppColors.greyColor;
     }
   }
 
   void changeFocusPassword(hasFocus) {
     if (hasFocus) {
-      passwordLabelColor.value = yellowColor;
+      passwordLabelColor.value = AppColors.yellowColor;
     } else {
-      passwordLabelColor.value = greyColor;
+      passwordLabelColor.value = AppColors.greyColor;
     }
   }
 

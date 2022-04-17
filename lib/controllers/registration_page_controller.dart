@@ -1,14 +1,15 @@
 import 'dart:io';
-import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../config/theme.dart';
+
 class RegistrationPageController extends GetxController {
-  var nameLabelColor = greyColor.obs;
-  var emailLabelColor = greyColor.obs;
-  var passwordLabelColor = greyColor.obs;
-  var confirmPasswordLabelColor = greyColor.obs;
+  var nameLabelColor = AppColors.greyColor.obs;
+  var emailLabelColor = AppColors.greyColor.obs;
+  var passwordLabelColor = AppColors.greyColor.obs;
+  var confirmPasswordLabelColor = AppColors.greyColor.obs;
 
   var imagePath = '';
   File? image;
@@ -23,9 +24,9 @@ class RegistrationPageController extends GetxController {
 
   void changeFocusName(hasFocus) {
     if (hasFocus) {
-      nameLabelColor.value = yellowColor;
+      nameLabelColor.value = AppColors.yellowColor;
     } else {
-      nameLabelColor.value = greyColor;
+      nameLabelColor.value = AppColors.greyColor;
     }
   }
 
@@ -42,25 +43,25 @@ class RegistrationPageController extends GetxController {
 
   void changeFocusEmail(hasFocus) {
     if (hasFocus) {
-      emailLabelColor.value = yellowColor;
+      emailLabelColor.value = AppColors.yellowColor;
     } else {
-      emailLabelColor.value = greyColor;
+      emailLabelColor.value = AppColors.greyColor;
     }
   }
 
   void changeFocusPassword(hasFocus) {
     if (hasFocus) {
-      passwordLabelColor.value = yellowColor;
+      passwordLabelColor.value = AppColors.yellowColor;
     } else {
-      passwordLabelColor.value = greyColor;
+      passwordLabelColor.value = AppColors.greyColor;
     }
   }
 
   void changeFocusConfirmPassword(hasFocus) {
     if (hasFocus) {
-      confirmPasswordLabelColor.value = yellowColor;
+      confirmPasswordLabelColor.value = AppColors.yellowColor;
     } else {
-      confirmPasswordLabelColor.value = greyColor;
+      confirmPasswordLabelColor.value = AppColors.greyColor;
     }
   }
 

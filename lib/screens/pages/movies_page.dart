@@ -1,10 +1,10 @@
-import 'package:flutix/model/movie.dart';
-import 'package:flutix/model/promo.dart';
+import 'package:flutix/models/movie.dart';
+import 'package:flutix/models/promo.dart';
 import 'package:flutix/screens/widgets/browse_movie_button.dart';
 import 'package:flutix/screens/widgets/coming_soon_banner.dart';
 import 'package:flutix/screens/widgets/now_playing_banner.dart';
 import 'package:flutix/screens/widgets/promo_card.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +22,7 @@ class MoviesPage extends StatelessWidget {
           width: phoneWidth,
           height: 110,
           decoration: BoxDecoration(
-            color: darkPurpleColor,
+            color: AppColors.darkPurpleColor,
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20),
@@ -53,7 +53,7 @@ class MoviesPage extends StatelessWidget {
                     children: [
                       Text(
                         'Angga Risky',
-                        style: mediumText.copyWith(
+                        style: AppTextStyle.mediumText.copyWith(
                             color: Colors.white, fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(
@@ -61,7 +61,8 @@ class MoviesPage extends StatelessWidget {
                       ),
                       Text(
                         'IDR 22.523',
-                        style: currencySmallText.copyWith(color: yellowColor),
+                        style: AppTextStyle.currencySmallText
+                            .copyWith(color: AppColors.yellowColor),
                       )
                     ],
                   )
@@ -77,10 +78,10 @@ class MoviesPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              margin: EdgeInsets.only(left: defaultMargin),
+              margin: const EdgeInsets.only(left: AppSizes.defaultMargin),
               child: Text(
                 'Now Playing',
-                style: mediumText.copyWith(
+                style: AppTextStyle.mediumText.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -107,18 +108,20 @@ class MoviesPage extends StatelessWidget {
               height: 30,
             ),
             Container(
-              margin: EdgeInsets.only(left: defaultMargin),
+              margin: const EdgeInsets.only(left: AppSizes.defaultMargin),
               child: Text(
                 'Browse Movie',
-                style: mediumText.copyWith(fontWeight: FontWeight.w500),
+                style: AppTextStyle.mediumText
+                    .copyWith(fontWeight: FontWeight.w500),
               ),
             ),
             const SizedBox(
               height: 12,
             ),
             Container(
-              width: phoneWidth - 2 * defaultMargin,
-              margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+              width: phoneWidth - 2 * AppSizes.defaultMargin,
+              margin: const EdgeInsets.symmetric(
+                  horizontal: AppSizes.defaultMargin),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -133,10 +136,11 @@ class MoviesPage extends StatelessWidget {
               height: 30,
             ),
             Padding(
-              padding: EdgeInsets.only(left: defaultMargin),
+              padding: const EdgeInsets.only(left: AppSizes.defaultMargin),
               child: Text(
                 'Coming Soon',
-                style: mediumText.copyWith(fontWeight: FontWeight.w500),
+                style: AppTextStyle.mediumText
+                    .copyWith(fontWeight: FontWeight.w500),
               ),
             ),
             const SizedBox(
@@ -165,7 +169,7 @@ class MoviesPage extends StatelessWidget {
         SizedBox(
           width: phoneWidth,
           child: ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: dummyPromos.length,

@@ -1,23 +1,37 @@
-import 'package:flutix/routes/pages.dart';
-import 'package:flutix/screens/pages/welcome_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutix/blocs/blocs.dart';
+import 'package:flutix/config/pages.dart';
+import 'package:flutix/config/route_name.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: const WelcomePage(),
-      getPages: Pages.pages,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LoginCubit>(
+          create: (context) => LoginCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        initialRoute: RouteName.login,
+        routes: Pages.pages,
+      ),
     );
   }
 }

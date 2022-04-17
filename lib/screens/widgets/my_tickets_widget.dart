@@ -1,4 +1,4 @@
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 
 class MyTicketsWidget extends StatelessWidget {
@@ -22,7 +22,7 @@ class MyTicketsWidget extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
-      width: phoneWidth - 2 * defaultMargin,
+      width: phoneWidth - 2 * AppSizes.defaultMargin,
       height: 90,
       child: Row(
         children: [
@@ -46,7 +46,7 @@ class MyTicketsWidget extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: largeText.copyWith(
+                style: AppTextStyle.largeText.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 18,
                 ),
@@ -56,14 +56,14 @@ class MyTicketsWidget extends StatelessWidget {
               ),
               Text(
                 '$genre - $language',
-                style: greySmallText,
+                style: AppTextStyle.greySmallText,
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
                 subtitle,
-                style: greySmallText,
+                style: AppTextStyle.greySmallText,
               ),
             ],
           )

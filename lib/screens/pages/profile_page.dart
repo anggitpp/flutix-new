@@ -1,7 +1,7 @@
-import 'package:flutix/screens/widgets/button_text.dart';
+import '../../config/theme.dart';
+import '../../widgets/button_text.dart';
 import 'package:flutix/screens/widgets/dash_separator.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
-import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,13 +18,13 @@ class ProfilePage extends StatelessWidget {
             HeaderTitle(
               backFunction: Get.back,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
               width: 120,
               height: 120,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -32,28 +32,28 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               'Anggit Pangestu Putra',
-              style: mediumText.copyWith(
+              style: AppTextStyle.mediumText.copyWith(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Text(
               'anggitpp23@gmail.com',
-              style: greyMediumText,
+              style: AppTextStyle.greyMediumText,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             SizedBox(
-              width: phoneWidth - 2 * defaultMargin,
+              width: phoneWidth - 2 * AppSizes.defaultMargin,
               child: Column(
                 children: [
                   InkWell(
@@ -63,31 +63,31 @@ class ProfilePage extends StatelessWidget {
                         Container(
                           width: 24,
                           height: 24,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage('assets/icons/profile.png'),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
                           'Edit Profile',
-                          style: mediumText,
+                          style: AppTextStyle.mediumText,
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   DashSeparator(
                     height: 1,
-                    color: lightGreyColor,
+                    color: AppColors.lightGreyColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   InkWell(
@@ -97,35 +97,35 @@ class ProfilePage extends StatelessWidget {
                         Container(
                           width: 24,
                           height: 24,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage('assets/icons/wallet.png'),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
                           'My Wallet',
-                          style: mediumText,
+                          style: AppTextStyle.mediumText,
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   DashSeparator(
                     height: 1,
-                    color: lightGreyColor,
+                    color: AppColors.lightGreyColor,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 100,
                   ),
                   ButtonText(
-                    color: purpleColor,
+                    color: AppColors.purpleColor,
                     text: 'Logout',
                     function: () {},
                   ),

@@ -1,12 +1,13 @@
 import 'package:flutix/controllers/select_seat_page_controller.dart';
-import 'package:flutix/model/movie.dart';
-import 'package:flutix/model/seat_row.dart';
-import 'package:flutix/screens/widgets/button_next.dart';
+import 'package:flutix/models/movie.dart';
+import 'package:flutix/models/seat_row.dart';
 import 'package:flutix/screens/widgets/textbox_widget.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
+import '../../widgets/button_next.dart';
 
 class SelectSeatPage extends StatelessWidget {
   const SelectSeatPage({Key? key}) : super(key: key);
@@ -34,9 +35,9 @@ class SelectSeatPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(
-                  left: defaultMargin,
-                  right: defaultMargin,
+                margin: const EdgeInsets.only(
+                  left: AppSizes.defaultMargin,
+                  right: AppSizes.defaultMargin,
                   top: 20,
                 ),
                 child: Row(
@@ -65,7 +66,7 @@ class SelectSeatPage extends StatelessWidget {
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.right,
-                                style: largeText.copyWith(
+                                style: AppTextStyle.largeText.copyWith(
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -132,7 +133,7 @@ class SelectSeatPage extends StatelessWidget {
                                   width: 45,
                                   height: 50,
                                   color: controller.selectedSeats.contains(seat)
-                                      ? yellowColor
+                                      ? AppColors.yellowColor
                                       : Colors.transparent,
                                   text: seat,
                                   isCurrency: true,
@@ -158,7 +159,7 @@ class SelectSeatPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(
-                        color: lightGreyColor,
+                        color: AppColors.lightGreyColor,
                       ),
                     ),
                   ),
@@ -167,7 +168,7 @@ class SelectSeatPage extends StatelessWidget {
                   ),
                   Text(
                     'Available',
-                    style: greySmallText.copyWith(fontSize: 10),
+                    style: AppTextStyle.greySmallText.copyWith(fontSize: 10),
                   ),
                   const SizedBox(
                     width: 20,
@@ -176,10 +177,10 @@ class SelectSeatPage extends StatelessWidget {
                     width: 20,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: lightGreyColor,
+                      color: AppColors.lightGreyColor,
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(
-                        color: lightGreyColor,
+                        color: AppColors.lightGreyColor,
                       ),
                     ),
                   ),
@@ -188,7 +189,7 @@ class SelectSeatPage extends StatelessWidget {
                   ),
                   Text(
                     'Booked',
-                    style: greySmallText.copyWith(fontSize: 10),
+                    style: AppTextStyle.greySmallText.copyWith(fontSize: 10),
                   ),
                   const SizedBox(
                     width: 20,
@@ -197,7 +198,7 @@ class SelectSeatPage extends StatelessWidget {
                     width: 20,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: yellowColor,
+                      color: AppColors.yellowColor,
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
@@ -206,7 +207,7 @@ class SelectSeatPage extends StatelessWidget {
                   ),
                   Text(
                     'Selected',
-                    style: greySmallText.copyWith(fontSize: 10),
+                    style: AppTextStyle.greySmallText.copyWith(fontSize: 10),
                   ),
                 ],
               ),
@@ -225,10 +226,10 @@ class SelectSeatPage extends StatelessWidget {
                   child: ButtonNext(
                     arrowColor: controller.isCanNextStep.value
                         ? Colors.white
-                        : darkGreyColor,
+                        : AppColors.darkGreyColor,
                     backgroundColor: controller.isCanNextStep.value
-                        ? purpleColor
-                        : lightGreyColor,
+                        ? AppColors.purpleColor
+                        : AppColors.lightGreyColor,
                   ),
                 ),
               ),

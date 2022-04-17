@@ -1,6 +1,6 @@
 import 'package:flutix/controllers/home_page_controller.dart';
 import 'package:flutix/screens/widgets/my_tickets_widget.dart';
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supercharged/supercharged.dart';
@@ -18,7 +18,7 @@ class TicketsPage extends StatelessWidget {
           width: phoneWidth,
           height: 110,
           decoration: BoxDecoration(
-            color: darkPurpleColor,
+            color: AppColors.darkPurpleColor,
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(20),
               bottomRight: Radius.circular(20),
@@ -31,10 +31,10 @@ class TicketsPage extends StatelessWidget {
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.only(left: defaultMargin),
+                padding: const EdgeInsets.only(left: AppSizes.defaultMargin),
                 child: Text(
                   'My Tickets',
-                  style: largeText.copyWith(
+                  style: AppTextStyle.largeText.copyWith(
                     color: Colors.white,
                   ),
                 ),
@@ -57,7 +57,7 @@ class TicketsPage extends StatelessWidget {
                                   border: Border(
                                     bottom: BorderSide(
                                       color: e == controller.selectedTab.value
-                                          ? yellowColor
+                                          ? AppColors.yellowColor
                                           : Colors.transparent,
                                       width: 3,
                                     ),
@@ -65,7 +65,7 @@ class TicketsPage extends StatelessWidget {
                                 ),
                                 child: Text(
                                   e,
-                                  style: mediumText.copyWith(
+                                  style: AppTextStyle.mediumText.copyWith(
                                     color: e == controller.selectedTab.value
                                         ? Colors.white
                                         : '6F678E'.toColor(),
@@ -85,8 +85,8 @@ class TicketsPage extends StatelessWidget {
           height: 30,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: defaultMargin,
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppSizes.defaultMargin,
           ),
           child: Column(
             children: [

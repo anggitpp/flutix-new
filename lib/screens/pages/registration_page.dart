@@ -1,10 +1,11 @@
 import 'package:flutix/controllers/registration_page_controller.dart';
-import 'package:flutix/screens/widgets/button_next.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/textfield.dart';
-import 'package:flutix/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../config/theme.dart';
+import '../../widgets/button_next.dart';
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({Key? key}) : super(key: key);
@@ -80,7 +81,8 @@ class RegistrationPage extends StatelessWidget {
               ),
               Obx(
                 () => Container(
-                  margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: AppSizes.defaultMargin),
                   child: Column(
                     children: [
                       Focus(
@@ -145,10 +147,10 @@ class RegistrationPage extends StatelessWidget {
                         child: ButtonNext(
                           arrowColor: controller.isCanSignUp.value
                               ? Colors.white
-                              : darkGreyColor,
+                              : AppColors.darkGreyColor,
                           backgroundColor: controller.isCanSignUp.value
-                              ? purpleColor
-                              : lightGreyColor,
+                              ? AppColors.purpleColor
+                              : AppColors.lightGreyColor,
                         ),
                       ),
                     ],

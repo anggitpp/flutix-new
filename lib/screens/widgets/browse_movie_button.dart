@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutix/shared/theme.dart';
+import '../../config/theme.dart';
 
 class BrowseMovieButton extends StatelessWidget {
   const BrowseMovieButton({
@@ -31,7 +31,7 @@ class BrowseMovieButton extends StatelessWidget {
       ),
       Text(
         text,
-        style: smallText,
+        style: AppTextStyle.smallText,
       )
     ]);
   }
