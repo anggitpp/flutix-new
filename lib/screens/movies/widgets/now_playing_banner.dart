@@ -2,7 +2,7 @@ import 'package:flutix/models/movie.dart';
 import 'package:flutix/widgets/star_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../../config/theme.dart';
+import '../../../config/theme.dart';
 import 'package:get/get.dart';
 
 class NowPlayingBanner extends StatelessWidget {

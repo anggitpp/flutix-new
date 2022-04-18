@@ -1,6 +1,6 @@
 import 'package:flutix/blocs/blocs.dart';
 import 'package:flutix/screens/movies/movies.dart';
-import 'package:flutix/screens/pages/tickets_page.dart';
+import 'package:flutix/screens/tickets/tickets.dart';
 import 'package:flutix/screens/home/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config/theme.dart';
+import '../config/theme.dart';
 
 class HeaderTitle extends StatelessWidget {
   final String title;

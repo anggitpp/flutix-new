@@ -1,4 +1,4 @@
-import '../../config/theme.dart';
+import '../../../config/theme.dart';
 import 'package:flutter/material.dart';
 
 class MyTicketsWidget extends StatelessWidget {
