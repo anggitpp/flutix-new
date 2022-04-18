@@ -1,6 +1,6 @@
 import 'package:flutix/screens/widgets/dash_separator.dart';
 import 'package:flutix/screens/widgets/header_title.dart';
-import 'package:flutix/screens/widgets/star_widget.dart';
+import 'package:flutix/widgets/star_widget.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

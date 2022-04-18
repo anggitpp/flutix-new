@@ -4,7 +4,7 @@ class RouteName {
   static const registration = '/registration';
   // static const genre = '/genre';
   // static const confirmAccount = '/confirmAccount';
-  // static const home = '/home';
+  static const home = '/home';
   // static const movieDetail = '/movieDetail';
   // static const selectCinema = '/selectCinema';
   // static const selectSeat = '/selectSeat';

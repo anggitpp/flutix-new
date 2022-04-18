@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutix/models/movie.dart';
 
-import '../../config/theme.dart';
+import '../../../config/theme.dart';
 
 class ComingSoonBanner extends StatelessWidget {
   const ComingSoonBanner({

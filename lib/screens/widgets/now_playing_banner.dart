@@ -1,5 +1,5 @@
 import 'package:flutix/models/movie.dart';
-import 'package:flutix/screens/widgets/star_widget.dart';
+import 'package:flutix/widgets/star_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../config/theme.dart';

@@ -2,7 +2,7 @@ import 'package:flutix/models/promo.dart';
 import 'package:flutter/material.dart';
 import 'package:supercharged/supercharged.dart';
 
-import '../../config/theme.dart';
+import '../../../config/theme.dart';
 
 class PromoCard extends StatelessWidget {
   const PromoCard({

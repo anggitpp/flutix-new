@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../config/theme.dart';
+import '../config/theme.dart';
 
 class StarWidget extends StatelessWidget {
   final int star;

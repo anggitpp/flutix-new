@@ -1,29 +1,25 @@
-import 'package:flutix/controllers/home_page_controller.dart';
-import 'package:flutix/screens/pages/movies_page.dart';
+import 'package:flutix/blocs/blocs.dart';
+import 'package:flutix/screens/movies/movies.dart';
 import 'package:flutix/screens/pages/tickets_page.dart';
 import 'package:flutix/screens/home/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:supercharged/supercharged.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../config/theme.dart';
 
-class HomePage extends StatelessWidget {
-  final controller = Get.find<HomePageController>();
-
-  HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    //   statusBarColor: darkPurpleColor,
-    //   statusBarBrightness: Brightness.dark,
-    //   statusBarIconBrightness: Brightness.dark, // status bar icon color
-    //   systemNavigationBarIconBrightness:
-    //       Brightness.dark, // color of navigation controls
-    // ));
+  State<HomePage> createState() => _HomePageState();
+}
 
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: 'F6F7F9'.toColor(),
       appBar: AppBar(
@@ -49,14 +45,12 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: const CustomBottomNavigationBar(),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Obx(
-            () => Stack(
-              children: [
-                controller.selectedPage.value == 'movies'
-                    ? const MoviesPage()
-                    : const TicketsPage(),
-              ],
-            ),
+          child: Stack(
+            children: [
+              context.watch<HomeCubit>().state.selectedPage == 'movies'
+                  ? const MoviesPage()
+                  : const TicketsPage(),
+            ],
           ),
         ),
       ),

@@ -27,12 +27,15 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<RegistrationCubit>(
           create: (context) => RegistrationCubit(),
-        )
+        ),
+        BlocProvider<HomeCubit>(
+          create: (context) => HomeCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        initialRoute: RouteName.registration,
+        initialRoute: RouteName.home,
         routes: pages,
       ),
     );
