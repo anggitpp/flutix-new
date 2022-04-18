@@ -1,5 +1,5 @@
 import 'package:flutix/controllers/select_genre_page_controller.dart';
-import 'package:flutix/screens/widgets/header_title.dart';
+import 'package:flutix/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/textbox_widget.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';

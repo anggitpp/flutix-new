@@ -1,6 +1,6 @@
 import 'package:flutix/controllers/edit_profile_page_controller.dart';
 import '../../widgets/button_text.dart';
-import 'package:flutix/screens/widgets/header_title.dart';
+import 'package:flutix/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/textfield.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';

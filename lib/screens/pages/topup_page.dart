@@ -1,6 +1,6 @@
 import 'package:flutix/controllers/topup_page_controller.dart';
 import '../../widgets/button_text.dart';
-import 'package:flutix/screens/widgets/header_title.dart';
+import 'package:flutix/widgets/header_title.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

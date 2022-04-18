@@ -1,4 +1,4 @@
-import 'package:flutix/screens/widgets/header_title.dart';
+import 'package:flutix/widgets/header_title.dart';
 import 'package:flutix/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

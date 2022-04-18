@@ -2,7 +2,7 @@ import 'package:flutix/models/movie.dart';
 import 'package:flutix/models/promo.dart';
 import 'package:flutix/screens/movies/widgets/browse_movie_button.dart';
 import 'package:flutix/screens/movies/widgets/coming_soon_banner.dart';
-import 'package:flutix/screens/widgets/now_playing_banner.dart';
+import 'package:flutix/screens/movies/widgets/now_playing_banner.dart';
 import 'package:flutix/screens/movies/widgets/promo_card.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';

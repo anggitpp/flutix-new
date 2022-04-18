@@ -1,5 +1,5 @@
 import 'package:flutix/controllers/registration_page_controller.dart';
-import 'package:flutix/screens/widgets/header_title.dart';
+import 'package:flutix/widgets/header_title.dart';
 import 'package:flutix/screens/widgets/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

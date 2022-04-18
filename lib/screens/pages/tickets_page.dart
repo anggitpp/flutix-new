@@ -1,5 +1,5 @@
 import 'package:flutix/controllers/home_page_controller.dart';
-import 'package:flutix/screens/widgets/my_tickets_widget.dart';
+import 'package:flutix/screens/tickets/widgets/my_tickets_widget.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
