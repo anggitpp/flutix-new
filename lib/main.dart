@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutix/blocs/blocs.dart';
 import 'package:flutix/config/pages.dart';
 import 'package:flutix/config/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'blocs/blocs.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -25,12 +25,15 @@ class MyApp extends StatelessWidget {
         BlocProvider<LoginCubit>(
           create: (context) => LoginCubit(),
         ),
+        BlocProvider<RegistrationCubit>(
+          create: (context) => RegistrationCubit(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        initialRoute: RouteName.login,
-        routes: Pages.pages,
+        initialRoute: RouteName.registration,
+        routes: pages,
       ),
     );
   }
