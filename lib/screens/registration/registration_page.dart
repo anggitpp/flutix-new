@@ -1,3 +1,4 @@
+import 'package:flutix/config/route_name.dart';
 import 'package:flutix/widgets/header_title.dart';
 import 'package:flutix/config/theme.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
     if (form == null || !form.validate()) return;
 
     form.save();
+
+    Navigator.pushNamed(context, RouteName.genre);
   }
 
   void _checkValidForm() {
@@ -152,11 +155,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               labelColor: state.nameLabelColor,
                               checkFunction: _checkValidForm,
                               validator: (String? value) {
-                                if (value == null || value.trim().isEmpty) {
+                                if (value!.trim().length < 3) {
                                   context
                                       .read<RegistrationCubit>()
                                       .changeFocusName(isError: true);
-                                  return 'Name required';
+                                  return 'Name required minimum 3 characters';
                                 }
 
                                 context
@@ -183,13 +186,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               labelColor: state.emailLabelColor,
                               checkFunction: _checkValidForm,
                               validator: (String? value) {
-                                if (value == null || value.trim().isEmpty) {
-                                  context
-                                      .read<RegistrationCubit>()
-                                      .changeFocusEmail(isError: true);
-                                  return 'Email required';
-                                }
-                                if (!isEmail(value)) {
+                                if (!isEmail(value!)) {
                                   context
                                       .read<RegistrationCubit>()
                                       .changeFocusEmail(isError: true);
@@ -221,13 +218,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               obsecureText: true,
                               checkFunction: _checkValidForm,
                               validator: (String? value) {
-                                if (value == null || value.trim().isEmpty) {
-                                  context
-                                      .read<RegistrationCubit>()
-                                      .changeFocusPassword(isError: true);
-                                  return 'Password required';
-                                }
-                                if (value.trim().length < 6) {
+                                if (value != null && value.trim().length < 6) {
                                   context
                                       .read<RegistrationCubit>()
                                       .changeFocusPassword(isError: true);
@@ -259,13 +250,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               obsecureText: true,
                               checkFunction: _checkValidForm,
                               validator: (String? value) {
-                                if (value == null || value.trim().isEmpty) {
-                                  context
-                                      .read<RegistrationCubit>()
-                                      .changeFocusConfirmPassword(
-                                          isError: true);
-                                  return 'Confirm Password required';
-                                }
                                 if (value != _passwordController.text) {
                                   context
                                       .read<RegistrationCubit>()
@@ -289,7 +273,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             height: 30,
                           ),
                           ButtonNext(
-                            onTap: () => _submit(),
+                            onTap: () => state.isCanSignUp ? _submit() : () {},
                             arrowColor: state.isCanSignUp
                                 ? Colors.white
                                 : AppColors.darkGreyColor,

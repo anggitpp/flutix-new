@@ -1,7 +1,7 @@
 import 'package:flutix/controllers/select_seat_page_controller.dart';
 import 'package:flutix/models/movie.dart';
 import 'package:flutix/models/seat_row.dart';
-import 'package:flutix/screens/widgets/textbox_widget.dart';
+import 'package:flutix/widgets/textbox_widget.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
