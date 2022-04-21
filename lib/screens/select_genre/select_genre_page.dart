@@ -5,13 +5,18 @@ import '../../config/route_name.dart';
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/user.dart';
 import '../../widgets/button_next.dart';
+import '../../widgets/header_title.dart';
 
 class SelectGenrePage extends StatelessWidget {
   const SelectGenrePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final arguments = (ModalRoute.of(context)?.settings.arguments ??
+        <String, dynamic>{}) as Map;
+
     final List<String> genres = [
       'Horror',
       'Music',
@@ -32,6 +37,7 @@ class SelectGenrePage extends StatelessWidget {
 
     return BlocBuilder<SelectGenreCubit, SelectGenreState>(
       builder: (context, state) {
+        User user = arguments['user'];
         return Scaffold(
           backgroundColor: Colors.white,
           body: SafeArea(
@@ -40,33 +46,8 @@ class SelectGenrePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: AppSizes.defaultMargin,
-                      right: AppSizes.defaultMargin,
-                      top: 16,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () => Navigator.pop(context),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            size: 24,
-                          ),
-                        ),
-                        // Text(
-                        //   headline6,
-                        //   textAlign: TextAlign.center,
-                        //   style: AppTextStyle.largeText
-                        //       .copyWith(fontWeight: FontWeight.w600, height: 1.5),
-                        // ),
-                        const SizedBox(
-                          width: 24,
-                        ),
-                      ],
-                    ),
+                  HeaderTitle(
+                    backFunction: () => Navigator.pop(context),
                   ),
                   const SizedBox(
                     height: 20,
@@ -154,7 +135,17 @@ class SelectGenrePage extends StatelessWidget {
                         InkWell(
                           onTap: () => state.isCanNextStep
                               ? Navigator.pushNamed(
-                                  context, RouteName.confirmAccount)
+                                  context, RouteName.confirmAccount,
+                                  arguments: {
+                                      'user': User(
+                                        name: user.name,
+                                        email: user.email,
+                                        genres: state.selectedGenres,
+                                        language: state.selectedLanguage,
+                                        image: user.image,
+                                      ),
+                                      'password': arguments['password'],
+                                    })
                               : () {},
                           child: ButtonNext(
                             arrowColor: state.isCanNextStep

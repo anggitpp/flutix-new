@@ -1,33 +1,42 @@
-import 'package:flutix/controllers/registration_page_controller.dart';
 import 'package:flutix/widgets/header_title.dart';
+
 import '../../config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supercharged/supercharged.dart';
+
+import '../../models/user.dart';
 
 class ConfirmAccountPage extends StatelessWidget {
   const ConfirmAccountPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<RegistrationPageController>();
+    final arguments = (ModalRoute.of(context)?.settings.arguments ??
+        <String, dynamic>{}) as Map;
+
+    User user = arguments['user'];
+    String password = arguments['password'];
+    print(user);
+    print(password);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
           child: Column(
         children: [
           HeaderTitle(
-            backFunction: Get.back,
+            backFunction: () => Navigator.pop(context),
             title: 'Confirm\nNew Account',
           ),
           const SizedBox(
             height: 90,
           ),
-          controller.image != null
+          user.image.path.isNotEmpty
               ? ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Image.file(
-                    controller.image!,
+                    user.image,
                     width: 150,
                     height: 150,
                     fit: BoxFit.cover,
@@ -53,7 +62,7 @@ class ConfirmAccountPage extends StatelessWidget {
             height: 5,
           ),
           Text(
-            controller.nameController.text,
+            user.name,
             style: AppTextStyle.largeText.copyWith(fontWeight: FontWeight.w600),
           ),
           const SizedBox(

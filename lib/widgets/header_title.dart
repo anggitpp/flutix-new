@@ -4,7 +4,7 @@ import '../config/theme.dart';
 
 class HeaderTitle extends StatelessWidget {
   final String title;
-  final Function? backFunction;
+  final void Function()? backFunction;
 
   const HeaderTitle({
     Key? key,
@@ -24,7 +24,7 @@ class HeaderTitle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            onTap: () => backFunction,
+            onTap: backFunction,
             child: const Icon(
               Icons.arrow_back,
               size: 24,

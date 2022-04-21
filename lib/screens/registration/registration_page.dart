@@ -1,9 +1,11 @@
+import 'dart:io';
+
 import 'package:flutix/config/route_name.dart';
+import 'package:flutix/models/user.dart';
 import 'package:flutix/widgets/header_title.dart';
 import 'package:flutix/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 import 'package:validators/validators.dart';
 
 import '../../blocs/registration/registration_cubit.dart';
@@ -39,7 +41,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
     form.save();
 
-    Navigator.pushNamed(context, RouteName.genre);
+    Navigator.pushNamed(context, RouteName.genre, arguments: {
+      'user': User(
+        name: _nameController.text,
+        email: _emailController.text,
+        genres: [],
+        language: '',
+        image:
+            BlocProvider.of<RegistrationCubit>(context, listen: false).image ??
+                File(''),
+      ),
+      'password': _passwordController.text,
+    });
   }
 
   void _checkValidForm() {
@@ -63,10 +76,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RegistrationCubit, RegistrationState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+    return BlocBuilder<RegistrationCubit, RegistrationState>(
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Colors.white,
@@ -79,7 +89,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   children: [
                     HeaderTitle(
                         title: 'Create New\nYour Account',
-                        backFunction: Get.back),
+                        backFunction: () => Navigator.pop(context)),
                     const SizedBox(
                       height: 22,
                     ),
@@ -104,9 +114,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     width: 90,
                                     height: 90,
                                     decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/nophoto.png'))),
+                                      image: DecorationImage(
+                                        image: AssetImage('assets/nophoto.png'),
+                                      ),
+                                    ),
                                   ),
                           ),
                           Align(

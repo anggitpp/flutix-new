@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        initialRoute: RouteName.genre,
+        initialRoute: RouteName.registration,
         routes: pages,
       ),
     );

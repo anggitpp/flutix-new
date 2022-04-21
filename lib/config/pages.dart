@@ -1,4 +1,5 @@
 import 'package:flutix/config/route_name.dart';
+import 'package:flutix/screens/confirm_account/confirm_account.dart';
 import 'package:flutix/screens/login/login.dart';
 import 'package:flutix/screens/registration/registration.dart';
 import 'package:flutix/screens/select_genre/select_genre.dart';
@@ -12,4 +13,5 @@ final pages = {
   RouteName.login: (context) => const LoginPage(),
   RouteName.home: (context) => const HomePage(),
   RouteName.genre: (context) => const SelectGenrePage(),
+  RouteName.confirmAccount: (context) => const ConfirmAccountPage(),
 };
