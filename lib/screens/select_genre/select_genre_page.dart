@@ -144,7 +144,6 @@ class SelectGenrePage extends StatelessWidget {
                                         language: state.selectedLanguage,
                                         image: user.image,
                                       ),
-                                      'password': arguments['password'],
                                     })
                               : () {},
                           child: ButtonNext(

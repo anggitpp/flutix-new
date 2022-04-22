@@ -4,6 +4,7 @@ import 'package:flutix/config/route_name.dart';
 import 'package:flutix/models/user.dart';
 import 'package:flutix/widgets/header_title.dart';
 import 'package:flutix/config/theme.dart';
+import 'package:flutix/widgets/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:validators/validators.dart';
@@ -11,6 +12,7 @@ import 'package:validators/validators.dart';
 import '../../blocs/registration/registration_cubit.dart';
 import '../../config/theme.dart';
 import '../../widgets/button_next.dart';
+import '../../widgets/error_dialog.dart';
 import '../../widgets/textformfield.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -41,18 +43,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
     form.save();
 
-    Navigator.pushNamed(context, RouteName.genre, arguments: {
-      'user': User(
-        name: _nameController.text,
-        email: _emailController.text,
-        genres: [],
-        language: '',
-        image:
-            BlocProvider.of<RegistrationCubit>(context, listen: false).image ??
-                File(''),
-      ),
-      'password': _passwordController.text,
-    });
+    context
+        .read<RegistrationCubit>()
+        .signUp(_emailController.text, _passwordController.text);
   }
 
   void _checkValidForm() {
@@ -76,7 +69,29 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RegistrationCubit, RegistrationState>(
+    return BlocConsumer<RegistrationCubit, RegistrationState>(
+      listener: (context, state) {
+        if (state.registrationStatus == RegistrationStatus.success) {
+          snackBar(context, 'Registration success, redirecting ..');
+          Future.delayed(const Duration(seconds: 2)).then(
+            (value) =>
+                Navigator.pushNamed(context, RouteName.genre, arguments: {
+              'user': User(
+                name: _nameController.text,
+                email: _emailController.text,
+                genres: [],
+                language: '',
+                image:
+                    BlocProvider.of<RegistrationCubit>(context, listen: false)
+                            .image ??
+                        File(''),
+              ),
+            }),
+          );
+        } else if (state.registrationStatus == RegistrationStatus.error) {
+          errorDialog(context, state.error);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Colors.white,
@@ -283,15 +298,21 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           const SizedBox(
                             height: 30,
                           ),
-                          ButtonNext(
-                            onTap: () => state.isCanSignUp ? _submit() : () {},
-                            arrowColor: state.isCanSignUp
-                                ? Colors.white
-                                : AppColors.darkGreyColor,
-                            backgroundColor: state.isCanSignUp
-                                ? AppColors.purpleColor
-                                : AppColors.lightGreyColor,
-                          ),
+                          state.registrationStatus ==
+                                  RegistrationStatus.submitting
+                              ? const Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : ButtonNext(
+                                  onTap: () =>
+                                      state.isCanSignUp ? _submit() : () {},
+                                  arrowColor: state.isCanSignUp
+                                      ? Colors.white
+                                      : AppColors.darkGreyColor,
+                                  backgroundColor: state.isCanSignUp
+                                      ? AppColors.purpleColor
+                                      : AppColors.lightGreyColor,
+                                ),
                         ],
                       ),
                     ),

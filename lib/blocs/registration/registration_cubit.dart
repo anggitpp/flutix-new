@@ -2,15 +2,20 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutix/config/theme.dart';
-import 'package:flutix/models/custom_error.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
+import 'package:flutix/config/theme.dart';
+import 'package:flutix/models/custom_error.dart';
+import 'package:flutix/repositories/auth_repository.dart';
 
 part 'registration_state.dart';
 
 class RegistrationCubit extends Cubit<RegistrationState> {
-  RegistrationCubit() : super(RegistrationState.initial());
+  AuthRepository authRepository;
+  RegistrationCubit({
+    required this.authRepository,
+  }) : super(RegistrationState.initial());
 
   File? image;
 
@@ -83,5 +88,18 @@ class RegistrationCubit extends Cubit<RegistrationState> {
 
     image = File(pickedImage!.path); // won't have any error now
     emit(state.copyWith(imagePath: pickedImage.path));
+  }
+
+  Future<void> signUp(email, password) async {
+    emit(state.copyWith(registrationStatus: RegistrationStatus.submitting));
+
+    try {
+      await authRepository.signUp(email: email, password: password);
+
+      emit(state.copyWith(registrationStatus: RegistrationStatus.success));
+    } on CustomError catch (e) {
+      emit(state.copyWith(
+          registrationStatus: RegistrationStatus.error, error: e));
+    }
   }
 }

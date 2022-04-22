@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutix/config/pages.dart';
+import 'package:flutix/repositories/auth_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,29 +23,43 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider<LoginCubit>(
-          create: (context) => LoginCubit(),
-        ),
-        BlocProvider<RegistrationCubit>(
-          create: (context) => RegistrationCubit(),
-        ),
-        BlocProvider<SelectGenreCubit>(
-          create: (context) => SelectGenreCubit(),
-        ),
-        BlocProvider<HomeCubit>(
-          create: (context) => HomeCubit(),
-        ),
-        BlocProvider<TicketsCubit>(
-          create: (context) => TicketsCubit(),
-        ),
+        RepositoryProvider(
+          create: (context) => AuthRepository(
+              firebaseFirestore: FirebaseFirestore.instance,
+              firebaseAuth: FirebaseAuth.instance),
+        )
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        initialRoute: RouteName.registration,
-        routes: pages,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<LoginCubit>(
+            create: (context) => LoginCubit(),
+          ),
+          BlocProvider<RegistrationCubit>(
+            create: (context) => RegistrationCubit(
+                authRepository: context.read<AuthRepository>()),
+          ),
+          BlocProvider<SelectGenreCubit>(
+            create: (context) => SelectGenreCubit(),
+          ),
+          BlocProvider<ConfirmAccountCubit>(
+            create: (context) => ConfirmAccountCubit(
+                authRepository: context.read<AuthRepository>()),
+          ),
+          BlocProvider<HomeCubit>(
+            create: (context) => HomeCubit(),
+          ),
+          BlocProvider<TicketsCubit>(
+            create: (context) => TicketsCubit(),
+          ),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          initialRoute: RouteName.registration,
+          routes: pages,
+        ),
       ),
     );
   }
