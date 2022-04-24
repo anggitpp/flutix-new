@@ -23,44 +23,60 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiRepositoryProvider(
-      providers: [
-        RepositoryProvider(
-          create: (context) => AuthRepository(
-              firebaseFirestore: FirebaseFirestore.instance,
-              firebaseAuth: FirebaseAuth.instance),
-        )
-      ],
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider<LoginCubit>(
-            create: (context) => LoginCubit(),
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
+          );
+        }
+        return MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider(
+              create: (context) => AuthRepository(
+                  firebaseFirestore: FirebaseFirestore.instance,
+                  firebaseAuth: FirebaseAuth.instance),
+            )
+          ],
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider<LoginCubit>(
+                create: (context) =>
+                    LoginCubit(authRepository: context.read<AuthRepository>()),
+              ),
+              BlocProvider<RegistrationCubit>(
+                create: (context) => RegistrationCubit(
+                    authRepository: context.read<AuthRepository>()),
+              ),
+              BlocProvider<SelectGenreCubit>(
+                create: (context) => SelectGenreCubit(),
+              ),
+              BlocProvider<ConfirmAccountCubit>(
+                create: (context) => ConfirmAccountCubit(
+                    authRepository: context.read<AuthRepository>()),
+              ),
+              BlocProvider<HomeCubit>(
+                create: (context) => HomeCubit(),
+              ),
+              BlocProvider<TicketsCubit>(
+                create: (context) => TicketsCubit(),
+              ),
+            ],
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Demo',
+              initialRoute:
+                  snapshot.data != null ? RouteName.home : RouteName.welcome,
+              routes: pages,
+            ),
           ),
-          BlocProvider<RegistrationCubit>(
-            create: (context) => RegistrationCubit(
-                authRepository: context.read<AuthRepository>()),
-          ),
-          BlocProvider<SelectGenreCubit>(
-            create: (context) => SelectGenreCubit(),
-          ),
-          BlocProvider<ConfirmAccountCubit>(
-            create: (context) => ConfirmAccountCubit(
-                authRepository: context.read<AuthRepository>()),
-          ),
-          BlocProvider<HomeCubit>(
-            create: (context) => HomeCubit(),
-          ),
-          BlocProvider<TicketsCubit>(
-            create: (context) => TicketsCubit(),
-          ),
-        ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          initialRoute: RouteName.registration,
-          routes: pages,
-        ),
-      ),
+        );
+      },
     );
   }
 }

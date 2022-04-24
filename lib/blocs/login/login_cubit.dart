@@ -1,14 +1,18 @@
-import 'package:flutix/config/theme.dart';
-import 'package:flutter/material.dart';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
+
+import 'package:flutix/config/theme.dart';
 import 'package:flutix/models/custom_error.dart';
+import 'package:flutix/repositories/auth_repository.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginState.initial());
+  final AuthRepository authRepository;
+  LoginCubit({
+    required this.authRepository,
+  }) : super(LoginState.initial());
 
   void checkValid(String email, String password) {
     if (email.isNotEmpty && password.isNotEmpty) {
@@ -35,6 +39,17 @@ class LoginCubit extends Cubit<LoginState> {
       emit(state.copyWith(passwordLabelColor: Colors.red));
     } else {
       emit(state.copyWith(passwordLabelColor: AppColors.greyColor));
+    }
+  }
+
+  Future<void> signIn(String email, String password) async {
+    emit(state.copyWith(loginStatus: LoginStatus.submitting));
+    try {
+      await authRepository.signIn(email: email, password: password);
+
+      emit(state.copyWith(loginStatus: LoginStatus.success));
+    } on CustomError catch (e) {
+      emit(state.copyWith(loginStatus: LoginStatus.error, error: e));
     }
   }
 }

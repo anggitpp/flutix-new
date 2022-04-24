@@ -1,4 +1,5 @@
 import 'package:flutix/blocs/login/login_cubit.dart';
+import 'package:flutix/config/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:validators/validators.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../config/theme.dart';
 import '../../widgets/button_next.dart';
+import '../../widgets/error_dialog.dart';
 import '../../widgets/textformfield.dart';
 
 class LoginPage extends StatefulWidget {
@@ -32,6 +34,10 @@ class _LoginPageState extends State<LoginPage> {
     if (form == null || !form.validate()) return;
 
     form.save();
+
+    context
+        .read<LoginCubit>()
+        .signIn(_emailController.text, _passwordController.text);
   }
 
   @override
@@ -48,7 +54,13 @@ class _LoginPageState extends State<LoginPage> {
         return false;
       },
       child: BlocConsumer<LoginCubit, LoginState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state.loginStatus == LoginStatus.success) {
+            Navigator.pushNamed(context, RouteName.home);
+          } else if (state.loginStatus == LoginStatus.error) {
+            errorDialog(context, state.error);
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             body: SafeArea(
@@ -135,13 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                                   return null;
                                 },
                                 validator: (String? value) {
-                                  if (value == null || value.trim().isEmpty) {
-                                    context
-                                        .read<LoginCubit>()
-                                        .changeFocusPassword(isError: true);
-                                    return 'Password required';
-                                  }
-                                  if (value.trim().length < 6) {
+                                  if (value!.trim().length < 6) {
                                     context
                                         .read<LoginCubit>()
                                         .changeFocusPassword(isError: true);
@@ -158,17 +164,21 @@ class _LoginPageState extends State<LoginPage> {
                             const SizedBox(
                               height: 30,
                             ),
-                            Center(
-                              child: ButtonNext(
-                                onTap: () => _submit(),
-                                arrowColor: state.isCanSignIn
-                                    ? Colors.white
-                                    : AppColors.darkGreyColor,
-                                backgroundColor: state.isCanSignIn
-                                    ? AppColors.purpleColor
-                                    : AppColors.lightGreyColor,
-                              ),
-                            ),
+                            state.loginStatus == LoginStatus.submitting
+                                ? const Center(
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : Center(
+                                    child: ButtonNext(
+                                      onTap: () => _submit(),
+                                      arrowColor: state.isCanSignIn
+                                          ? Colors.white
+                                          : AppColors.darkGreyColor,
+                                      backgroundColor: state.isCanSignIn
+                                          ? AppColors.purpleColor
+                                          : AppColors.lightGreyColor,
+                                    ),
+                                  ),
                           ],
                         ),
                         const SizedBox(
